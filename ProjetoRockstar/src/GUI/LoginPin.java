@@ -33,8 +33,6 @@ public class LoginPin extends JPanel implements MouseListener, ActionListener {
         this.panelLogin=panelLogin;
         this.rockstar=rockstar;
 
-        System.out.println(utilizadorAtual.getUsername());
-
         ArrayList< Album> albuns=utilizadorAtual.getAlbuns();
         for(int i=0;i<albuns.size();i++){
             System.out.println(albuns.get(i).getNome());
@@ -65,7 +63,7 @@ public class LoginPin extends JPanel implements MouseListener, ActionListener {
 
         checkPin=new JCheckBox();
         checkPin.setBounds(txtPin.getX()+ txtPin.getWidth()+resizeWidth(5), txtPin.getY(),resizeWidth(20),resizeHeight(20));
-        mudarCorRGB(checkPin,50,126,154);
+        mudarCorRGB(checkPin,0, 70, 112);
         checkPin.addActionListener(this);
         add(checkPin);
 

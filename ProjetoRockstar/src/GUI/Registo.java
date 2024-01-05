@@ -87,7 +87,7 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
 
         btnValidar=new JButton("Registar \uD83D\uDCDD");
         btnValidar.setFont(font);
-        btnValidar.setBounds(resizeWidth(205),txtPin.getY()+txtPin.getHeight()+resizeHeight(25),resizeWidth(90),resizeHeight(40));
+        btnValidar.setBounds(resizeWidth(205),txtPin.getY()+txtPin.getHeight()+resizeHeight(25),resizeWidth(110),resizeHeight(40));
         mudarCorRGB(btnValidar,170,210,220);
         btnValidar.addMouseListener(this);
         btnValidar.addActionListener(this);
@@ -233,6 +233,14 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
         else if(clicked==btnVoltarAtras){
             mudarCorRGB(btnVoltarAtras,170,210,220);
         }
+    }
+
+    public JTextField getTxtUsername() {
+        return txtUsername;
+    }
+
+    public JTextField getTxtPin() {
+        return txtPin;
     }
 
     public JButton getBtnValidar() {

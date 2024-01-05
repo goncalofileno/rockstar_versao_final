@@ -77,6 +77,10 @@ public class Frame extends JFrame implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                 add(panelLogin);
+                panelRegisto.getTxtUsername().setText("");
+                panelRegisto.getTxtPass().setText("");
+                panelRegisto.getTxtNome().setText("");
+                panelRegisto.getTxtPin().setText("");
                 panelLogin.setVisible(true);
                 panelRegisto.setVisible(false);
                 remove(panelRegisto);
@@ -87,6 +91,8 @@ public class Frame extends JFrame implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelLogin.setVisible(false);
+                panelLogin.getTxtUsername().setText("");
+                panelLogin.getTxtPass().setText("");
                 add(panelRegisto);
                 panelRegisto.setVisible(true);
             }

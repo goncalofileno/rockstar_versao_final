@@ -76,7 +76,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
         add(txtPass);
 
         checkPass.setBounds(txtPass.getX()+ txtPass.getWidth()+resizeWidth(5), txtPass.getY(),resizeWidth(20),resizeWidth(20));
-        mudarCorRGB(checkPass,142, 163, 148);
+        mudarCorRGB(checkPass,0, 29, 61);
         checkPass.addActionListener(this);
         add(checkPass);
 
@@ -85,7 +85,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
 
         btnRegisto=new JButton("Registo \uD83D\uDCDD");
         btnRegisto.setFont(font);
-        btnRegisto.setBounds(resizeWidth(140),resizeHeight(210),resizeWidth(90),resizeHeight(40));
+        btnRegisto.setBounds(resizeWidth(140),resizeHeight(210),resizeWidth(100),resizeHeight(40));
         mudarCorRGB(btnRegisto,170,210,220);
         btnRegisto.addMouseListener(this);
 
