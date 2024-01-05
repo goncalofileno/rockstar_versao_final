@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class InterfaceCliente extends JPanel implements ActionListener {
@@ -74,8 +73,10 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         lblUser=new JLabel("Cliente: "+utilizadorAtual.getUsername());
         lblUser.setFont(font4);
         lblUser.setForeground(new Color(255, 195, 0));
-        lblUser.setBounds(panelPlaylists.getX()+resizeWidth(10),lblTabela.getY(),resizeWidth(150),lblTabela.getHeight());
+        lblUser.setBounds(panelPlaylists.getX()+resizeWidth(35),lblTabela.getY(),resizeWidth(150),lblTabela.getHeight());
         add(lblUser);
+
+        setIcon();
 
         Font font=new Font("SansSerif",Font.BOLD ,12);
         btnLoja=new JButton("Loja \uD83D\uDED2");
@@ -121,19 +122,12 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         //////////////////////////////// JFrame CARREGAMENTO////////////////////////////////////
         frmCarregamento =new JDialog();
         frmCarregamento.setTitle("Carregamento");
+        frmCarregamento.setModal(true);
         frmCarregamento.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frmCarregamento.setLayout(null);
         frmCarregamento.setSize(resizeWidth(240),resizeHeight(150));
         frmCarregamento.setLocationRelativeTo(null);
         frmCarregamento.setResizable(false);
-
-        frmCarregamento.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                frame.setEnabled(true);
-            }
-        });
 
         panelCarregamento=new JPanel();
         panelCarregamento.setLayout(null);
@@ -167,7 +161,6 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setEnabled(true);
                 txtValor.setText("");
                 frmCarregamento.dispatchEvent(new WindowEvent(frmCarregamento,WindowEvent.WINDOW_CLOSING));
             }
@@ -175,7 +168,11 @@ public class InterfaceCliente extends JPanel implements ActionListener {
 
         btnLogout=new JButton("Logout ⛔");
         btnLogout.setFont(font);
+
         btnLogout.setBounds(resizeWidth(820),btnRemoverPlaylist.getY(),resizeWidth(100),resizeHeight(30));
+
+        btnLogout.setBounds(resizeWidth(825),btnRemoverPlaylist.getY(),resizeWidth(100),resizeHeight(30));
+
         btnLogout.addActionListener(this);
         add(btnLogout);
 
@@ -209,7 +206,7 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         Object clicked=e.getSource();
 
         if(clicked==btnCarregar){
-            frame.setEnabled(false);
+            //frame.setEnabled(false);
             frmCarregamento.setLocationRelativeTo(null);
             frmCarregamento.setVisible(true);
         }
@@ -285,7 +282,6 @@ public class InterfaceCliente extends JPanel implements ActionListener {
             }
         }
         else if(clicked==btnCarregar2){
-
             try{
                 if(Double.valueOf(txtValor.getText())>0) {
                     utilizadorAtual.carregarSaldo(Double.valueOf(txtValor.getText()));
@@ -357,5 +353,19 @@ public class InterfaceCliente extends JPanel implements ActionListener {
 
     public JLabel getLblAlterarVisibilidade() {
         return lblAlterarVisibilidade;
+    }
+
+    private void setIcon(){
+        JLabel imagem=new JLabel();
+        int witdh40=resizeWidth(40);
+        int witdh30=resizeWidth(30);
+        int height50=resizeHeight(50);
+        int height30=resizeHeight(30);
+        imagem.setBounds(lblUser.getX()-witdh40,lblUser.getY()-resizeHeight(18),witdh30,height50);
+        ImageIcon icon =new ImageIcon("rockstar.png");
+        Image imagem2;
+        imagem2=icon.getImage().getScaledInstance(witdh30,height30,Image.SCALE_SMOOTH);
+        imagem.setIcon(new ImageIcon(imagem2));
+        add(imagem);
     }
 }

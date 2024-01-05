@@ -15,12 +15,12 @@ public class CriarPlaylistPanel extends JPanel implements ActionListener {
     private RockstarInc rockstar;
     private Cliente utilizadorAtual;
     private JButton btnCriar,btnCancelar;
-    private JFrame frame;
+    private JDialog frame;
     private ClientePlaylists panelPlaylists;
 
     /**Construtor do JPanel que surge quando o botão "Criar Playlist" é acionado. Nesta JPanel é possível inserir o nome da playlist, e a sua visibilidade
      */
-    public CriarPlaylistPanel(RockstarInc rockstar, Cliente utilizadorAtual,JFrame frame,ClientePlaylists panelPlaylists){
+    public CriarPlaylistPanel(RockstarInc rockstar, Cliente utilizadorAtual,JDialog frame,ClientePlaylists panelPlaylists){
         this.rockstar=rockstar;
         this.utilizadorAtual=utilizadorAtual;
         this.frame=frame;

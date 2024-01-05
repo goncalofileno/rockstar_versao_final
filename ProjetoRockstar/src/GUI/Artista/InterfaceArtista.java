@@ -52,9 +52,10 @@ public class InterfaceArtista extends JPanel implements ActionListener {
         lblUser=new JLabel("Artista: "+utilizadorAtual.getUsername());
         lblUser.setFont(font3);
         lblUser.setForeground(new Color(255,195,0));
-        lblUser.setBounds(panelAlbuns.getX()+resizeWidth(10),lblTabela.getY(),resizeWidth(150),lblTabela.getHeight());
+        lblUser.setBounds(panelAlbuns.getX()+resizeWidth(35),lblTabela.getY(),resizeWidth(150),lblTabela.getHeight());
         add(lblUser);
 
+        setIcon();
 
         tabelaArtista=new TabelaArtista( rockstar, utilizadorAtual, panelAlbuns,this,frame);
         tabelaArtista.setBounds(lblTabela.getX(),panelAlbuns.getY(),resizeWidth(465),panelAlbuns.getHeight());
@@ -65,7 +66,7 @@ public class InterfaceArtista extends JPanel implements ActionListener {
         Font font4=new Font("SansSerif",Font.BOLD ,12);
         btnLogout=new JButton("Logout ⛔");
         btnLogout.setFont(font4);
-        btnLogout.setBounds(resizeWidth(840),resizeHeight(565),resizeWidth(100),resizeHeight(30));
+        btnLogout.setBounds(resizeWidth(825),resizeHeight(565),resizeWidth(100),resizeHeight(30));
         btnLogout.addActionListener(this);
         add(btnLogout);
 
@@ -113,5 +114,19 @@ public class InterfaceArtista extends JPanel implements ActionListener {
 
     public JLabel getLblTabela() {
         return lblTabela;
+    }
+
+    public void setIcon(){
+        JLabel imagem=new JLabel();
+        int witdh40=resizeWidth(40);
+        int witdh30=resizeWidth(30);
+        int height50=resizeHeight(50);
+        int height30=resizeHeight(30);
+        imagem.setBounds(lblUser.getX()-witdh40,lblUser.getY()-resizeHeight(18),witdh30,height50);
+        ImageIcon icon =new ImageIcon("rockstar.png");
+        Image imagem2;
+        imagem2=icon.getImage().getScaledInstance(witdh30,height30,Image.SCALE_SMOOTH);
+        imagem.setIcon(new ImageIcon(imagem2));
+        add(imagem);
     }
 }

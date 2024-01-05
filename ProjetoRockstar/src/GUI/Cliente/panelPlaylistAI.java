@@ -16,14 +16,14 @@ public class panelPlaylistAI extends JPanel implements ActionListener {
     private JTextField txtNomePlaylist,txtNumeroMusicas;
     private Cliente utilizadorAtual;
     private ClientePlaylists panelPlaylists;
-    private JFrame frame;
+    private JDialog frame;
     private TabelaCliente tabelaCliente;
     private RockstarInc rockstar;
 
     /**Construtor do JPanel que surge quando o botão "Criar Playlist AI" é carregado. Neste JPanel é possivel inserir o nome da playlist, a sua visibilidade,
      *  o número de músicas que esta deve conter e o género pretentido para as músicas inseridas
      */
-    public panelPlaylistAI(Cliente utilizadorAtual, ClientePlaylists panelPlaylists, JFrame frame, RockstarInc rockstar) {
+    public panelPlaylistAI(Cliente utilizadorAtual, ClientePlaylists panelPlaylists, JDialog frame, RockstarInc rockstar) {
         this.panelPlaylists=panelPlaylists;
         this.utilizadorAtual=utilizadorAtual;
         this.frame=frame;

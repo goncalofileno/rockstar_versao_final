@@ -60,7 +60,7 @@ public class EstatisticasArtista extends JPanel {
         frmTops=new JDialog();
         frmTops.setTitle("Tops de Vendas");
         btnTops=new JButton("Ver Tops 🏆");
-        btnTops.setBounds(scroll.getX()+resizeWidth(40),scroll.getY()+scroll.getHeight()+resizeHeight(10),resizeWidth(100),resizeHeight(30));
+        btnTops.setBounds(scroll.getX()+resizeWidth(40),scroll.getY()+scroll.getHeight()+resizeHeight(10),resizeWidth(110),resizeHeight(30));
         btnTops.setFont(font);
         btnTops.addActionListener(new ActionListener() {
             @Override

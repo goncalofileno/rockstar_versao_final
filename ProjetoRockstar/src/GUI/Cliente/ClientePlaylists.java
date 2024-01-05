@@ -17,7 +17,7 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
     private JButton btnCriarPlaylist, btnCriadorAI, btnBiblioteca;
     private Cliente utilizadorAtual;
     private CriarPlaylistPanel panelCriarPlaylist;
-    private JFrame frameCriarPlaylist, framePlaylistAI;
+    private JDialog frameCriarPlaylist, framePlaylistAI;
     private panelPlaylistAI panelPlaylistAI;
     private RockstarInc rockstar;
     private TabelaCliente tabelaCliente;
@@ -74,9 +74,11 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
         printPlaylists(this.utilizadorAtual.getPlaylistsProprias());
 
         ///////////////////////Criação da frame de criar playlist/////////////////////////////////////
-        frameCriarPlaylist=new JFrame("Nova Playlist");
+        frameCriarPlaylist=new JDialog();
+        frameCriarPlaylist.setTitle("Nova Playlist");
         panelCriarPlaylist=new CriarPlaylistPanel(rockstar,utilizadorAtual,frameCriarPlaylist,this);
         frameCriarPlaylist.setLayout(null);
+        frameCriarPlaylist.setModal(true);
         frameCriarPlaylist.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frameCriarPlaylist.setSize(resizeWidth(300),resizeHeight(250));
         frameCriarPlaylist.setLocationRelativeTo(null);
@@ -88,19 +90,13 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
         panelCriarPlaylist.setBounds(0,0,frameCriarPlaylist.getWidth(),frameCriarPlaylist.getHeight());
         frameCriarPlaylist.add(panelCriarPlaylist);
 
-        frameCriarPlaylist.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                frame.setEnabled(true);
-            }
-        });
-
         ////////////////////////////////////////////////////////////
 
         //////////////Criaçao da frame PlaylistAI/////////////////////////////////
 
-        framePlaylistAI=new JFrame("Playlist AI");
+        framePlaylistAI=new JDialog();
+        framePlaylistAI.setTitle("Playlist AI");
+        framePlaylistAI.setModal(true);
         framePlaylistAI.setLayout(null);
         framePlaylistAI.setLocationRelativeTo(null);
         framePlaylistAI.setSize(resizeWidth(320),resizeHeight(220));
@@ -113,13 +109,6 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
         panelPlaylistAI.getBtnCriar().addActionListener(this);
         framePlaylistAI.add(panelPlaylistAI);
         framePlaylistAI.setVisible(false);
-        framePlaylistAI.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                frame.setEnabled(true);
-            }
-        });
 
         ////////////////////////////////////////////////////////////////////////////
 
@@ -181,7 +170,6 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
         if (clicked==btnCriarPlaylist){
             frameCriarPlaylist.setLocationRelativeTo(null);
             frameCriarPlaylist.setVisible(true);
-            frame.setEnabled(false);
         }
         else if(clicked==panelCriarPlaylist.getBtnCriar()) {
 
@@ -195,7 +183,6 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
                     utilizadorAtual.addPlaylist(playlist);
                     printPlaylists(utilizadorAtual.getPlaylistsProprias());
                     panelCriarPlaylist.getTxtNome().setText("");
-                    frame.setEnabled(true);
                     frameCriarPlaylist.dispatchEvent(new WindowEvent(frameCriarPlaylist, WindowEvent.WINDOW_CLOSING));
                     tabelaCliente.setPanelPlaylists(this);
                     tabelaCliente.addPlaylistPopMenu(playlist);
@@ -210,7 +197,6 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
                     utilizadorAtual.addPlaylist(playlist);
                     printPlaylists(utilizadorAtual.getPlaylistsProprias());
                     panelCriarPlaylist.getTxtNome().setText("");
-                    frame.setEnabled(true);
                     frameCriarPlaylist.dispatchEvent(new WindowEvent(frameCriarPlaylist, WindowEvent.WINDOW_CLOSING));
                     tabelaCliente.setPanelPlaylists(this);
                     tabelaCliente.addPlaylistPopMenu(playlist);
@@ -223,11 +209,9 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
             }
         }
         else if (clicked==panelCriarPlaylist.getBtnCancelar()){
-            frame.setEnabled(true);
             frameCriarPlaylist.dispatchEvent(new WindowEvent(frameCriarPlaylist,WindowEvent.WINDOW_CLOSING));
         }
         else if(clicked==btnCriadorAI){
-            frame.setEnabled(false);
             framePlaylistAI.setLocationRelativeTo(null);
             framePlaylistAI.setVisible(true);
         }
@@ -258,7 +242,6 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
                             tabelaCliente.getMenuBiblioteca11().add(new JMenuItem(playlistAI.getNome()));
                             tabelaCliente.getMenuBiblioteca1().add(tabelaCliente.getMenuBiblioteca11().get(tabelaCliente.getMenuBiblioteca11().size() - 1));
                             tabelaCliente.updateActionsListeners();
-                            frame.setEnabled(true);
                             framePlaylistAI.dispatchEvent(new WindowEvent(framePlaylistAI, WindowEvent.WINDOW_CLOSING));
                         }
                         else JOptionPane.showMessageDialog(frame,"Não tem músicas deste género");
@@ -270,7 +253,6 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
             }
         }
         else if(clicked==panelPlaylistAI.getBtnCancelar()){
-            frame.setEnabled(true);
             framePlaylistAI.dispatchEvent(new WindowEvent(framePlaylistAI,WindowEvent.WINDOW_CLOSING));
         }
     }

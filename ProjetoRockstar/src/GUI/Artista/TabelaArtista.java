@@ -132,7 +132,6 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
                     row = table.convertRowIndexToModel(row);
                     musicaSelecionada = rockstar.musicaSelecionada(utilizadorAtual.getUsername(), table.getModel().getValueAt(row, 0).toString());
                     txtTitulo.setText(musicaSelecionada.getTitulo());
-                    frame.setEnabled(false);
                     frmTitulo.setLocationRelativeTo(null);
                     frmTitulo.setVisible(true);
                 }
@@ -149,7 +148,6 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
                     row = table.convertRowIndexToModel(row);
                     musicaSelecionada = rockstar.musicaSelecionada(utilizadorAtual.getUsername(), table.getModel().getValueAt(row, 0).toString());
                     txtPreco.setText(Double.toString(musicaSelecionada.getPrecoMusica()));
-                    frame.setEnabled(false);
                     frmPreco.setLocationRelativeTo(null);
                     frmPreco.setVisible(true);
                 }
@@ -170,22 +168,6 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
         add(popmenuArtista);
 
         table.addMouseListener(this);
-
-        frmPreco.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                frame.setEnabled(true);
-            }
-        });
-
-        frmTitulo.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                frame.setEnabled(true);
-            }
-        });
     }
 
     public void setHeader(String[] headers) {
@@ -290,21 +272,18 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
         Object clicked = e.getSource();
 
         if(clicked==btnCancelarTitulo){
-            frame.setEnabled(true);
             frmTitulo.dispatchEvent(new WindowEvent(frmTitulo,WindowEvent.WINDOW_CLOSING));
         }
         else if(clicked==btnTitulo){
             if(!txtTitulo.getText().isEmpty()) {
                 musicaSelecionada.setTitulo(txtTitulo.getText());
                 printMusicas(listaMusicasAtual);
-                frame.setEnabled(true);
                 frmTitulo.dispatchEvent(new WindowEvent(frmTitulo, WindowEvent.WINDOW_CLOSING));
             }
             else JOptionPane.showMessageDialog(interfaceArtista,"Tem de inserir um título na música");
 
         }
         else if(clicked==btnCancelarPreco){
-            frame.setEnabled(true);
             frmPreco.dispatchEvent(new WindowEvent(frmPreco,WindowEvent.WINDOW_CLOSING));
         }
         else if(clicked==btnPreco){
@@ -313,7 +292,6 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
                     if (Double.valueOf(txtPreco.getText()) >= 0) {
                         musicaSelecionada.novoPreco(Double.valueOf(txtPreco.getText()));
                         printMusicas(listaMusicasAtual);
-                        frame.setEnabled(true);
                         frmPreco.dispatchEvent(new WindowEvent(frmPreco, WindowEvent.WINDOW_CLOSING));
                     } else JOptionPane.showMessageDialog(interfaceArtista, "Dados inseridos inválidos");
                 }
@@ -405,6 +383,7 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
 
     public void setFrameTitulo(){
         frmTitulo.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frmTitulo.setModal(true);
         frmTitulo.setLayout(null);
         frmTitulo.setBounds(resizeWidth(1000),resizeHeight(150),resizeWidth(280),resizeHeight(180));
         frmTitulo.setResizable(false);
@@ -448,6 +427,7 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
     }
     public void setFramePreco(){
         frmPreco.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frmPreco.setModal(true);
         frmPreco.setLayout(null);
         frmPreco.setSize(resizeWidth(280),resizeHeight(180));
         frmPreco.setResizable(false);

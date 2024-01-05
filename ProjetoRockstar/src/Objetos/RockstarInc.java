@@ -27,7 +27,7 @@ public class RockstarInc implements Serializable {
         //Artista as = new Artista("as", "as", "as", "1111");
         addArtista("as", "as", "assss", "1111");
 
-        Album album1 = new Album("Rock in Rio", "Rock", artistasList.get(0));
+        Album album1 = new Album("Rock in Rio", "Rock 🎸", artistasList.get(0));
         albunsList.add(album1);
         //as.addAlbum(album1);
 
@@ -42,17 +42,17 @@ public class RockstarInc implements Serializable {
         Artista rosinha = new Artista("rosinha", "rosinha", "Rosinha", "1234");
         artistasList.add(rosinha);*/
 
-        Musica deixei = new Musica("Deixei tudo por ela", artistasList.get(0), "Popular", 0.00, true);
+        Musica deixei = new Musica("Deixei tudo por ela", artistasList.get(0), "Popular 🥁", 0.00, true);
         musicasList.add(deixei);
         deixei.novoPreco(1.5);
         deixei.novoPreco(2.5);
        /* Musica voltei = new Musica("Voltei para ela", zecabra, "Popular", 0.00,true);
         musicasList.add(voltei);*/
-        Musica aqui = new Musica("Aqui só para ti", marialeal, "Pop Popular", 0.00, true);
+        Musica aqui = new Musica("Aqui só para ti", marialeal, "Popular 🥁", 0.00, true);
         musicasList.add(aqui);
-        Musica traidora = new Musica("Traidora", marialeal, "Pop Popular", 0.00, true);
+        Musica traidora = new Musica("Traidora", marialeal, "Popular 🥁", 0.00, true);
         musicasList.add(traidora);
-        Musica turbinada = new Musica("Turbinada", anamalhoa, "Pop Popular", 2.5, true);
+        Musica turbinada = new Musica("Turbinada", anamalhoa, "Popular 🥁", 2.5, true);
         musicasList.add(turbinada);
         turbinada.novoPreco(1.5);
         turbinada.novoPreco(1);
@@ -60,7 +60,7 @@ public class RockstarInc implements Serializable {
         musicasList.add(elamexe);
         Musica bacalhau = new Musica("Deixa-me cheirar teu bacalhau", quimbarreiros, "Popular", 3.00,true);
         musicasList.add(bacalhau);*/
-        Musica casar = new Musica("Qual o melhor dia para casar", artistasList.get(0), "Popular", 2.5, true);
+        Musica casar = new Musica("Qual o melhor dia para casar", artistasList.get(0), "Popular 🥁", 2.5, true);
         musicasList.add(casar);
        /* Musica chupo = new Musica("Eu chupo", artistasList.get(0), "Popular", 0.00,true);
         musicasList.add(chupo);
@@ -75,7 +75,7 @@ public class RockstarInc implements Serializable {
         musicaPopular.add(deixei);
         musicaPopular.add(casar);
 
-        Album album2 = new Album("Popular in Rio", "Popular", artistasList.get(0));
+        Album album2 = new Album("Popular in Rio", "Popular 🥁", artistasList.get(0));
         albunsList.add(album2);
         album2.addMusica(deixei);
         artistasList.get(0).removerMusicaDeSingles(deixei);
