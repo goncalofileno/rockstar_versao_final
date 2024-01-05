@@ -99,14 +99,14 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
         radioBtnCliente.setForeground(new Color(255,195,0));
         radioBtnCliente.setBounds(resizeWidth(200),resizeHeight(20),resizeWidth(100),resizeHeight(20));
         radioBtnCliente.setSelected(true);
-        mudarCorRGB(radioBtnCliente,142, 163, 148);
+        mudarCorRGB(radioBtnCliente,0, 21, 69);
         radioBtnCliente.addActionListener(this);
 
         radioBtnArtista=new JRadioButton("Artista");
         radioBtnArtista.setFont(font);
         radioBtnArtista.setForeground(new Color(255,195,0));
         radioBtnArtista.setBounds(radioBtnCliente.getX()+radioBtnCliente.getWidth()+resizeWidth(20),radioBtnCliente.getY(),radioBtnCliente.getWidth(),radioBtnCliente.getHeight());
-        mudarCorRGB(radioBtnArtista,142, 163, 148);
+        mudarCorRGB(radioBtnArtista,0, 21, 69);
         radioBtnArtista.addActionListener(this);
 
         grpRadioBtn=new ButtonGroup();
