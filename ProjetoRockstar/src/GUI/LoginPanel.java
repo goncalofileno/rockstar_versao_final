@@ -36,7 +36,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
         lblEmpresa=new JLabel("Rockstar");
         lblEmpresa.setForeground(new Color(255,195,0));
         lblEmpresa.setFont(font1);
-        lblEmpresa.setBounds(resizeWidth(175),resizeHeight(10),resizeWidth(250),resizeHeight(50));
+        lblEmpresa.setBounds(resizeWidth(195),resizeHeight(30),resizeWidth(250),resizeHeight(50));
         add(lblEmpresa);
 
         mudarCorRGB(this,0,29,61);
