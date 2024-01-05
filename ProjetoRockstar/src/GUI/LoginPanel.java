@@ -32,7 +32,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
         this.rockstar=rockstar;
         this.frame=frame;
 
-        Font font1=new Font("SansSererif",Font.BOLD | Font.ITALIC,35);
+        Font font1=new Font("Calibri",Font.BOLD | Font.ITALIC,35);
         lblEmpresa=new JLabel("Rockstar");
         lblEmpresa.setForeground(new Color(255,195,0));
         lblEmpresa.setFont(font1);
@@ -41,7 +41,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
 
         mudarCorRGB(this,0,29,61);
 
-        Font font=new Font("SansSerif",Font.BOLD,13);
+        Font font=new Font("Calibri",Font.BOLD,13);
         lblUsername=new JLabel("Username: ");
         lblUsername.setForeground(new Color(255,195,0));
         lblUsername.setFont(font);

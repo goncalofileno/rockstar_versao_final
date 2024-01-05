@@ -175,7 +175,7 @@ public class InterfaceCliente extends JPanel implements ActionListener {
 
         btnLogout=new JButton("Logout ⛔");
         btnLogout.setFont(font);
-        btnLogout.setBounds(resizeWidth(840),btnRemoverPlaylist.getY(),resizeWidth(100),resizeHeight(30));
+        btnLogout.setBounds(resizeWidth(820),btnRemoverPlaylist.getY(),resizeWidth(100),resizeHeight(30));
         btnLogout.addActionListener(this);
         add(btnLogout);
 
