@@ -160,7 +160,7 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
                     if (txtNome.getText().length() > 1) {
                         if (radioBtnCliente.isSelected()) {
                             rockstar.addCliente(txtUsername.getText(), txtPass.getText(), txtNome.getText());
-                            JOptionPane.showMessageDialog(frame, "Cliente adicionado com sucesso");
+                            JOptionPane.showMessageDialog(frame, "Cliente adicionado com sucesso 😀");
                             panelLogin.setVisible(true);
                             txtUsername.setText("");
                             txtPass.setText("");
@@ -170,7 +170,7 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
                         } else if (radioBtnArtista.isSelected()){
                             if (rockstar.verificarPin(txtPin.getText())) {
                                 rockstar.addArtista(txtUsername.getText(), txtPass.getText(), txtNome.getText(), txtPin.getText());
-                                JOptionPane.showMessageDialog(frame, "Artista adicionado com sucesso");
+                                JOptionPane.showMessageDialog(frame, "Artista adicionado com sucesso 😀");
                                 panelLogin.setVisible(true);
                                 txtUsername.setText("");
                                 txtPass.setText("");
@@ -181,11 +181,11 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
                             else JOptionPane.showMessageDialog(frame,"O pin deve conter 4 dígitos");
                         }
                     }
-                    else JOptionPane.showMessageDialog(frame,"O nome inserido é inválido");
+                    else JOptionPane.showMessageDialog(frame,"O nome inserido é inválido 😔");
                 }
                 else JOptionPane.showMessageDialog(frame,"A password inserida tem de ter mais que 4 caracteres");
             }
-            else JOptionPane.showMessageDialog(frame,"O username inserido é inválido");
+            else JOptionPane.showMessageDialog(frame,"O username inserido é inválido 😔");
         }
     }
 

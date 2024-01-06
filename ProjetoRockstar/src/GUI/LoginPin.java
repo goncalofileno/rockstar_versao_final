@@ -132,7 +132,7 @@ public class LoginPin extends JPanel implements MouseListener, ActionListener {
                 frame.setEnabled(true);
                 frameArtista.dispatchEvent(new WindowEvent(frameArtista,WindowEvent.WINDOW_CLOSING));
             }
-            else JOptionPane.showMessageDialog(this,"O PIN introduzido está incorreto");
+            else JOptionPane.showMessageDialog(this,"O PIN introduzido está incorreto 😔");
         }
     }
 
