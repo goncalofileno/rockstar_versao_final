@@ -98,7 +98,6 @@ public class PesquisaArtista extends JPanel {
                 }
             }
         });
-
     }
 
     private int resizeWidth(int width ){

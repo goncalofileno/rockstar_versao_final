@@ -132,7 +132,7 @@ public class TabelaCliente extends JPanel implements ActionListener {
                                         panelCarrinho.getPanelCarrinho().add(Box.createRigidArea(new Dimension(0,3)));
                                     }
                                 } else {
-                                    JOptionPane.showMessageDialog(interfaceCliente, "Música adicionada com sucesso");
+                                    JOptionPane.showMessageDialog(interfaceCliente, "Música adicionada à biblioteca com sucesso");
                                 }
                             } else {
                                 JOptionPane.showMessageDialog(interfaceCliente, "A música selecionada já se encontra no carrinho de compras.");
