@@ -8,8 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class EstatisticasArtista extends JPanel {
@@ -69,15 +67,6 @@ public class EstatisticasArtista extends JPanel {
             }
         });
         add(btnTops);
-
-        frmTops.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                frame.setEnabled(true);
-            }
-        });
-
     }
 
     public void updateEstatisticas(){
@@ -124,12 +113,12 @@ public class EstatisticasArtista extends JPanel {
     }
 
     private void setFrmTops(){
+        frmTops.setModal(true);
         frmTops.setLayout(null);
         frmTops.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frmTops.setSize(resizeWidth(460),resizeHeight(240));
         frmTops.setLocationRelativeTo(null);
         frmTops.setResizable(false);
-        frame.setEnabled(false);
 
         panelTops=new JPanel();
         panelTops.setLayout(null);
@@ -144,7 +133,7 @@ public class EstatisticasArtista extends JPanel {
 
         scrollTopArtistas=new JScrollPane(panelTopsArtistas);
         scrollTopMusicas=new JScrollPane(panelTopsMusicas);
-        scrollTopMusicas.setBounds(resizeWidth(35),resizeHeight(35),resizeWidth(185),resizeHeight(155));
+        scrollTopMusicas.setBounds(resizeWidth(25),resizeHeight(35),resizeWidth(185),resizeHeight(155));
         scrollTopArtistas.setBounds(resizeWidth(240),scrollTopMusicas.getY(),resizeWidth(185),scrollTopMusicas.getHeight());
 
         Font font = new Font("SansSerif", Font.BOLD, 12);
