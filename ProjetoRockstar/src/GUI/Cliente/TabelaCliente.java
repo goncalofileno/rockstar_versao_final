@@ -600,8 +600,14 @@ public class TabelaCliente extends JPanel implements ActionListener {
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(table.getModel());
         table.setRowSorter(sorter);
 
-        sorter.setSortable(0, false);
+        if (interfaceCliente.getLblTabela().getText().equals("Loja:")) {
+            sorter.setSortable(0, false);
+        }
+        else{
+            sorter.setSortable(0, true);
+        }
         sorter.setSortable(1, false);
+        sorter.setSortable(2, false);
         sorter.setSortable(2, false);
         sorter.setSortable(3, true);
         sorter.setSortable(4, true);
