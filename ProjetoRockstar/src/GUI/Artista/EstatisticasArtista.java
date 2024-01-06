@@ -104,21 +104,21 @@ public class EstatisticasArtista extends JPanel {
         totalAlbuns.setFont(font1);
         panelEstatisticas.add(totalAlbuns);
 
-        panelEstatisticas.add(new JLabel(" Rock: "+albunsPorGenero[0]));
+        panelEstatisticas.add(new JLabel(" Rock 🎸: "+albunsPorGenero[0]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
-        panelEstatisticas.add(new JLabel(" Rap: "+albunsPorGenero[1]));
+        panelEstatisticas.add(new JLabel(" Pop 🎤: "+albunsPorGenero[2]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
-        panelEstatisticas.add(new JLabel(" Pop: "+albunsPorGenero[2]));
+        panelEstatisticas.add(new JLabel(" Rap 🔫: "+albunsPorGenero[1]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
-        panelEstatisticas.add(new JLabel(" Clássica: "+albunsPorGenero[3]));
+        panelEstatisticas.add(new JLabel(" Clássica 🎻: "+albunsPorGenero[3]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
-        panelEstatisticas.add(new JLabel(" Jazz: "+albunsPorGenero[4]));
+        panelEstatisticas.add(new JLabel(" Jazz 🎺: "+albunsPorGenero[4]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
-        panelEstatisticas.add(new JLabel(" Metal: "+albunsPorGenero[5]));
+        panelEstatisticas.add(new JLabel(" Metal 🤘: "+albunsPorGenero[5]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
-        panelEstatisticas.add(new JLabel(" Popular: "+albunsPorGenero[6]));
+        panelEstatisticas.add(new JLabel(" Popular 🥁: "+albunsPorGenero[6]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
-        panelEstatisticas.add(new JLabel(" Eletrónica: "+albunsPorGenero[7]));
+        panelEstatisticas.add(new JLabel(" Eletrónica 🎧: "+albunsPorGenero[7]));
         panelEstatisticas.add(Box.createRigidArea(new Dimension(0,3)));
 
     }

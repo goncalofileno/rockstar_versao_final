@@ -277,21 +277,21 @@ public class RockstarInc implements Serializable {
         int[] albunsPorGenero = new int[8];
 
         for (int i = 0; i < albunsList.size(); i++) {
-            if (albunsList.get(i).getGenero().equals("Rock")) {
+            if (albunsList.get(i).getGenero().equals("Rock 🎸")) {
                 albunsPorGenero[0]++;
-            } else if (albunsList.get(i).getGenero().equals("Rap")) {
+            } else if (albunsList.get(i).getGenero().equals("Rap 🎤")) {
                 albunsPorGenero[1]++;
-            } else if (albunsList.get(i).getGenero().equals("Pop")) {
+            } else if (albunsList.get(i).getGenero().equals("Pop 🔫")) {
                 albunsPorGenero[2]++;
-            } else if (albunsList.get(i).getGenero().equals("Clássica")) {
+            } else if (albunsList.get(i).getGenero().equals("Clássica 🎻")) {
                 albunsPorGenero[3]++;
-            } else if (albunsList.get(i).getGenero().equals("Jazz")) {
+            } else if (albunsList.get(i).getGenero().equals("Jazz 🎺")) {
                 albunsPorGenero[4]++;
-            } else if (albunsList.get(i).getGenero().equals("Metal")) {
+            } else if (albunsList.get(i).getGenero().equals("Metal 🤘")) {
                 albunsPorGenero[5]++;
-            } else if (albunsList.get(i).getGenero().equals("Popular")) {
+            } else if (albunsList.get(i).getGenero().equals("Popular 🥁")) {
                 albunsPorGenero[6]++;
-            } else if (albunsList.get(i).getGenero().equals("Eletrónica")) {
+            } else if (albunsList.get(i).getGenero().equals("Eletrónica 🎧")) {
                 albunsPorGenero[7]++;
             }
         }
