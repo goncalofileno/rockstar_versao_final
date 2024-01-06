@@ -55,6 +55,10 @@ public class Artista extends Utilizador implements Serializable {
         return albuns;
     }
 
+    /**Verifica se o Artista tem algum Album com o nome igual ao titulo inserido.
+     * @param titulo Título a ser verificado.
+     * @return true caso exista um Album com o título inserido ou false caso não exista.
+     */
     public boolean verificarAlbum(String titulo){
         for (int i=0;i<albuns.size();i++){
             if(albuns.get(i).getNome().equals(titulo)){
@@ -64,6 +68,10 @@ public class Artista extends Utilizador implements Serializable {
         return false;
     }
 
+    /**Verifica se o Artista tem alguma Musica com o nome igual ao nome inserido.
+     * @param nomeMusica Nome a ser verificado.
+     * @return true caso exista uma Musica com o título inserido ou false caso não exista.
+     */
     public boolean verificarMusica(String nomeMusica){
         for (int i=0;i<albuns.size();i++){
             for(int j=0;j<albuns.get(i).getMusicas().size();j++) {
@@ -81,6 +89,9 @@ public class Artista extends Utilizador implements Serializable {
         return false;
     }
 
+    /**Método que vai buscar os títulos de todos os Objetos Album do Artista.
+     * @return Array de String com o nome "Singles" associado ao ídice 0 e com o nome de todos os albuns do Artista.
+     */
     public String[] titulosAlbuns(){
         String[] titulos=new String[albuns.size()+1];
 
@@ -96,23 +107,23 @@ public class Artista extends Utilizador implements Serializable {
         singles.remove(musica);
     }
 
+    /**Método que devolve todas as músicas do Artista, estejam estas inseridas em albuns ou não.
+     * @return ArrayList de todas as músicas do Artista.
+     */
     public ArrayList<Musica> getTotalMusicas(){
         ArrayList<Musica> totalMusicas=new ArrayList<>();
 
         for (int i=0;i<albuns.size();i++){
             totalMusicas.addAll(albuns.get(i).getMusicas());
-            //for(int j=0;j<albuns.get(i).getMusicas().size();j++) {
-              // totalMusicas.add(albuns.get(i).getMusicas().get(j));
-           // }
         }
 
         totalMusicas.addAll(singles);
-        //for(int i=0;i<singles.size();i++){
-        //    totalMusicas.add(singles.get(i));
-        //}
       return totalMusicas;
     }
 
+    /**Método que faz o somatório das vendas de todas as músicas do Artista.
+     * @return Total de músicas vendidas pelo Artista.
+     */
     public int getVendasTotal(){
         ArrayList<Musica> musicasTotal=new ArrayList<>();
         musicasTotal.addAll(getTotalMusicas());

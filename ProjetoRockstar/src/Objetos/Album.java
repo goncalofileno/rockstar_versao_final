@@ -38,6 +38,11 @@ public class Album extends GrupoDeMusicas implements Serializable {
     public String getGenero() {
         return genero;
     }
+
+    /**Caso a música não tenha já um album associado, esta é adicionada ao album e retorna true, caso contrário a música não é adicionada a nenhum album e retorna false.
+     * @param musica Objeto Música a ser adicionado.
+     * @return true ou false.
+     */
     public boolean addMusica(Musica musica) {
         if(!musica.verificarExistenciaAlbum()) {
             if (getMusicas().contains(musica)) {

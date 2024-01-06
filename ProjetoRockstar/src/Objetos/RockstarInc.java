@@ -141,6 +141,10 @@ public class RockstarInc implements Serializable {
         return null;
     }
 
+    /**Verifica a validade do username inserido.
+     * @param username Username a ser validado.
+     * @return true caso seja válido ou false caso não seja.
+     */
     public boolean verificarUsername(String username) {
             if (!verificarExistenciaUser(username) && !username.contains(" ")) {
                 if (username.length() > 3) {
@@ -149,18 +153,30 @@ public class RockstarInc implements Serializable {
             } else return false;
     }
 
+    /**Verifica a validade da pass.
+     * @param pass Pass a ser validada.
+     * @return true caso seja uma pass válida ou false caso não seja.
+     */
     public boolean verificarPass(String pass) {
         if (pass.length() > 3) {
             return true;
         } else return false;
     }
 
+    /**Verifica a validade do pin.
+     * @param pin Pin a ser validada.
+     * @return true caso seja um pin válido ou false caso não seja.
+     */
     public boolean verificarPin(String pin) {
         if (pin.length() == 4 && pin.matches("\\d+")) {
             return true;
         } else return false;
     }
 
+    /**Verifica se o username inserido já existe no Objeto Rockstar.
+     * @param username Username a ser verificado.
+     * @return true caso o username inserido já exista no Objeto Rockstar ou false caso não exista.
+     */
     public boolean verificarExistenciaUser(String username) {
         for (Artista artista : artistasList) {
             if (artista.getUsername().equals(username)) {
@@ -175,6 +191,11 @@ public class RockstarInc implements Serializable {
         return false;
     }
 
+    /**Encontra o Objeto Música através do seu título e do username do Artista que a criou.
+     * @param username Username do artista que criou a música.
+     * @param titulo Título da música a ser encontrada.
+     * @return Objeto Música procurado.
+     */
     public Musica musicaSelecionada(String username, String titulo) {
         for (int i = 0; i < musicasList.size(); i++) {
             if (musicasList.get(i).getTitulo().equals(titulo) && musicasList.get(i).getCompositor().getUsername().equals(username)) {
@@ -193,6 +214,11 @@ public class RockstarInc implements Serializable {
         return musicasList;
     }
 
+    /**Método que faz o filtro das músicas que contém o conjunto de caracteres inserido.
+     * @param listaDeMusicas ArrayList das músicas a serem filtradas.
+     * @param titulo Texto que vai filtrar as músicas.
+     * @return ArrayList de músicas filtradas.
+     */
     public ArrayList<Musica> pesquisaTitulo(ArrayList<Musica> listaDeMusicas, String titulo) {
         ArrayList listaPesquisada = new ArrayList<Musica>();
         titulo = titulo.toLowerCase();
@@ -204,6 +230,11 @@ public class RockstarInc implements Serializable {
         return listaPesquisada;
     }
 
+    /**Método que faz o filtro das artistas que contém o conjunto de caracteres inserido.
+     * @param listaDeMusicas ArrayList dos artistas a serem filtradas.
+     * @param artista Texto que vai filtrar os artistas.
+     * @return ArrayList de artistas filtrados.
+     */
     public ArrayList<Musica> pesquisaArtista(ArrayList<Musica> listaDeMusicas, String artista) {
         ArrayList listaPesquisada = new ArrayList<Musica>();
         artista = artista.toLowerCase();
@@ -214,7 +245,11 @@ public class RockstarInc implements Serializable {
         }
         return listaPesquisada;
     }
-
+    /**Método que faz o filtro dos albuns que contém o conjunto de caracteres inserido.
+     * @param listaDeMusicas ArrayList dos albuns a serem filtradas.
+     * @param titulo Texto que vai filtrar os albuns.
+     * @return ArrayList de albuns filtrados.
+     */
     public ArrayList<Musica> pesquisaAlbum(ArrayList<Musica> listaDeMusicas, String titulo) {
         ArrayList listaPesquisada = new ArrayList<Musica>();
         titulo = titulo.toLowerCase();
@@ -228,6 +263,9 @@ public class RockstarInc implements Serializable {
         return listaPesquisada;
     }
 
+    /**Método para filtrar apenas as músicas que têm o valor do atributo EstadoAtividade como true.
+     * @return ArrayList de músicas com o valor do atributo EstadoAtividade igual a true.
+     */
     public ArrayList<Musica> musicasVisiveis() {
         ArrayList<Musica> musicasVisiveis = new ArrayList<>();
         for (int i = 0; i < musicasList.size(); i++) {
@@ -298,9 +336,10 @@ public class RockstarInc implements Serializable {
         return albunsPorGenero;
     }
 
+    /**Método que, através da lista guardada no atributo artistasList, vai filtrar os artistas com mais vendas.
+     * @return ArrayList dos artistas com mais vendas.
+     */
     public ArrayList<Artista> getTopArtistasVendidos() {
-        ArrayList<Artista> topArtistas = new ArrayList<>();
-
         boolean verificar = false;
         ArrayList<Artista> artistasTotal = new ArrayList<>();
         artistasTotal.addAll(artistasList);
@@ -332,6 +371,9 @@ public class RockstarInc implements Serializable {
         return top5Artistas;
     }
 
+    /**Método que, através da lista guardada no atributo musicasList, vai filtrar as músicas com mais vendas.
+     * @return ArrayList dos músicas com mais vendas.
+     */
     public ArrayList<Musica> getTop5MusicasVendidas() {
         ArrayList<Musica> totalMusicas = new ArrayList<>();
         totalMusicas.addAll(musicasList);
