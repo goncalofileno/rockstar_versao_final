@@ -40,7 +40,7 @@ public class LoginPin extends JPanel implements MouseListener, ActionListener {
 
         mudarCorRGB(this,0, 70, 112);
         setLayout(null);
-        Font font=new Font("Calibri",Font.BOLD,13);
+        Font font=new Font("SansSerif",Font.BOLD,13);
         lblPin=new JLabel("Pin:");
         lblPin.setFont(font);
         lblPin.setForeground(new Color(255,195,0));

@@ -27,7 +27,7 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
         mudarCorRGB(this,0, 29, 61);
         setLayout(null);
 
-        Font font=new Font("Calibri",Font.BOLD,13);
+        Font font=new Font("SansSerif",Font.BOLD,13);
         lblUsername=new JLabel("Username: ");
         lblUsername.setForeground(new Color(255,195,0));
         lblUsername.setFont(font);
@@ -78,7 +78,7 @@ public class Registo extends JPanel implements ActionListener, MouseListener {
         txtPin.setVisible(false);
         add(txtPin);
 
-        Font font2=new Font("Calibri",Font.BOLD,20);
+        Font font2=new Font("SansSerif",Font.BOLD,20);
         lblRegisto=new JLabel("Registo");
         lblRegisto.setFont(font2);
         lblRegisto.setForeground(new Color(255,195,0));
