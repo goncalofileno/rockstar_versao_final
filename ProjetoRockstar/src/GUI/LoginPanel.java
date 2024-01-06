@@ -80,13 +80,13 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
         checkPass.addActionListener(this);
         add(checkPass);
 
-        btnRegisto=new JButton("Registo \uD83D\uDCDD");
+        btnRegisto=new JButton("Registo 📝");
         btnRegisto.setFont(font);
         btnRegisto.setBounds(resizeWidth(140),resizeHeight(210),resizeWidth(100),resizeHeight(40));
         mudarCorRGB(btnRegisto,170,210,220);
         btnRegisto.addMouseListener(this);
 
-        btnLogin=new JButton("Login \uD83D\uDE80");
+        btnLogin=new JButton("Login 🚀");
         btnLogin.setFont(font);
         btnLogin.setBounds(btnRegisto.getX()+btnRegisto.getWidth()+resizeWidth(30),btnRegisto.getY(),btnRegisto.getWidth(),btnRegisto.getHeight());
         mudarCorRGB(btnLogin,170,210,220);
@@ -171,7 +171,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
             String username=new String(txtUsername.getText());
 
             if (rockstar.verificarUtilizador(username)==null){
-                JOptionPane.showMessageDialog(this,"Os dados introduzidos não estão corretos");
+                JOptionPane.showMessageDialog(this,"Os dados introduzidos não estão corretos 😔");
             }
             else {
                 String pass = new String(txtPass.getPassword());
@@ -187,7 +187,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
                     }
                 }
                 else {
-                    JOptionPane.showMessageDialog(this,"Os dados introduzidos não estão corretos");
+                    JOptionPane.showMessageDialog(this,"Os dados introduzidos não estão corretos 😔");
                     System.out.println("2");
                 }
             }
