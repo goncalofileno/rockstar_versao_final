@@ -79,7 +79,7 @@ public class TabelaCliente extends JPanel implements ActionListener {
         mudarCorRGB(this, 0, 29, 61);
         mudarCorRGB(table, 0, 70, 112);
 
-        Font font = new Font("SansSerif", Font.BOLD, 12);
+        Font font = new Font("SansSerif", Font.BOLD, 11);
         table.setFont(font);
         table.setForeground(new Color(255, 214, 10));
 
