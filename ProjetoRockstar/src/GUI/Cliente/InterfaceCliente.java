@@ -206,7 +206,6 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         Object clicked=e.getSource();
 
         if(clicked==btnCarregar){
-            //frame.setEnabled(false);
             frmCarregamento.setLocationRelativeTo(null);
             frmCarregamento.setVisible(true);
         }

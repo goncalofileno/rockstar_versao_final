@@ -11,7 +11,6 @@ public class PanelCarrinho extends JPanel {
     private JPanel panelCarrinho;
     private JScrollPane scroll;
     private JButton btnCheckout,btnReset;
-    private JList lista;
     private JPanel filtros;
     private Cliente utilizadorAtual;
     private ArrayList<String> titulos;

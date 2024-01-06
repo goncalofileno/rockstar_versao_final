@@ -98,24 +98,6 @@ public class panelPlaylistAI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicked=e.getSource();
-
-        /*if (clicked==btnCriar){
-            String comboGenero=(String)cmbGenero.getSelectedItem();
-            boolean selectedVisibilidade;
-            if (checkVisibilidade.isSelected()){
-                selectedVisibilidade=true;
-            }
-            else selectedVisibilidade=false;
-            Playlist playlistAI=utilizadorAtual.criaPlaylistAI(txtNomePlaylist.getText(),Integer.valueOf(txtNumeroMusicas.getText()),comboGenero,selectedVisibilidade);
-            utilizadorAtual.addPlaylist(playlistAI);
-            rockstar.addPlaylist(playlistAI);
-            tabelaCliente.setPanelPlaylists(panelPlaylists);
-            panelPlaylists.printPlaylists(utilizadorAtual.getPlaylistsProprias());
-            frame.dispatchEvent(new WindowEvent(frame,WindowEvent.WINDOW_CLOSING));
-        }
-        else if(clicked==btnCancelar){
-            frame.dispatchEvent(new WindowEvent(frame,WindowEvent.WINDOW_CLOSING));
-        }*/
     }
 
     public void setTabelaCliente(TabelaCliente tabelaCliente) {

@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class ClientePlaylists extends JPanel implements MouseListener, ActionListener {
+public class ClientePlaylists extends JPanel implements ActionListener {
     private ArrayList<JButton> btnListaPlaylists;
     private JPanel panelPlaylists;
     private JScrollPane scrollPanePlaylists;
@@ -46,13 +46,13 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
         Font font1 = new Font("SansSerif", Font.BOLD, 11);
         btnCriarPlaylist = new JButton("Criar Playlist \uD83C\uDFB5");
         btnCriarPlaylist.setFont(font1);
-        btnCriarPlaylist.setBounds(lblPlaylists.getX(), resizeHeight(250), resizeWidth(120), resizeHeight(25));
+        btnCriarPlaylist.setBounds(lblPlaylists.getX(), resizeHeight(250), resizeWidth(145), resizeHeight(25));
         btnCriarPlaylist.addActionListener(this);
         add(btnCriarPlaylist);
 
         btnCriadorAI = new JButton("Criar Playlist AI \uD83E\uDD16");
         btnCriadorAI.setFont(font1);
-        btnCriadorAI.setBounds(btnCriarPlaylist.getX(), btnCriarPlaylist.getY() + resizeHeight(45), btnCriarPlaylist.getWidth() + resizeWidth(30), btnCriarPlaylist.getHeight());
+        btnCriadorAI.setBounds(btnCriarPlaylist.getX(), btnCriarPlaylist.getY() + resizeHeight(45), btnCriarPlaylist.getWidth(), btnCriarPlaylist.getHeight());
         btnCriadorAI.addActionListener(this);
         add(btnCriadorAI);
 
@@ -138,26 +138,7 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
         return btnBiblioteca;
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
 
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
     private void mudarCorRGB(Component componente,int red,int green,int blue){ float[] cor = new float[3];
         cor = Color.RGBtoHSB(red, green, blue, cor);
         componente.setBackground(Color.getHSBColor(cor[0], cor[1], cor[2]));
@@ -257,6 +238,9 @@ public class ClientePlaylists extends JPanel implements MouseListener, ActionLis
         }
     }
 
+    /**Faz o update do JPanel onde são apresentadas as playlists consoante estas vão sendo adicionadas ou removidas. A cada botão está associado uma playlist.
+     * @param playlists playlists que vão ser apresentadas no jpanel.
+     */
     public void printPlaylists(ArrayList<Playlist> playlists){
         panelPlaylists.removeAll();
         btnListaPlaylists.clear();

@@ -74,19 +74,12 @@ public class TabelaCliente extends JPanel implements ActionListener {
 
         setOrdemTabela();
 
-        //table.setAutoCreateRowSorter(true);
-
         mudarCorRGB(this, 0, 29, 61);
         mudarCorRGB(table, 0, 70, 112);
 
         Font font = new Font("SansSerif", Font.BOLD, 11);
         table.setFont(font);
         table.setForeground(new Color(255, 214, 10));
-
-        // Configurar a coluna do checkbox
-        //TableColumn checkboxColumn = table.getColumnModel().getColumn(4);
-        //checkboxColumn.setCellRenderer(table.getDefaultRenderer(Boolean.class));
-        //checkboxColumn.setCellEditor(table.getDefaultEditor(Boolean.class));
 
         scrollPane = new JScrollPane(table);
         printMusicas(utilizadorAtual.getBiblioteca());
@@ -407,6 +400,10 @@ public class TabelaCliente extends JPanel implements ActionListener {
         componente.setBackground(Color.getHSBColor(cor[0], cor[1], cor[2]));
     }
 
+    /**Faz o update da tabela central consoante as músicas que são escolhidas para ser apresentadas.
+     * Método usado para as músicas dentro da biblioteca e dentro de playlists.
+     * @param musicas músicas que vão ser apresentadas na tabela central
+     */
     public void printMusicas(ArrayList<Musica> musicas) {
         String [] headers= {"Nome","Artista","Género","Rating",""};
         setHeader(headers);
@@ -445,6 +442,9 @@ public class TabelaCliente extends JPanel implements ActionListener {
         tcm.removeColumn((tcm.getColumn(4)));
     }
 
+    /**Faz o update da tabela central quando as músicas presentes na loja são apresentadas.
+     * @param musicas músicas que vão ser apresentadas na tabela central
+     */
     public void printMusicasLoja(ArrayList<Musica> musicas) {
         String [] headers ={"Nome","Artista","Género","Rating","Preço","Username"};
         setHeader(headers);
@@ -615,6 +615,8 @@ public class TabelaCliente extends JPanel implements ActionListener {
         return df.format(valor);
     }
 
+    /**Faz o update dos ActionListeners. É usado quando uma playlist é criada ou removida.
+     */
     public void updateActionsListeners() {
         for (int i = 0; i < menuBiblioteca11.size(); i++) {
 

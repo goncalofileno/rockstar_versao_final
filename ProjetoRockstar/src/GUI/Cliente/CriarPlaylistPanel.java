@@ -64,29 +64,7 @@ public class CriarPlaylistPanel extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-       /* Object clicked=e.getSource();
 
-        if(clicked==btnCriar) {
-            if (checkVisibilidade.isSelected()) {
-                Playlist playlist=new Playlist(txtNome.getText(), true);
-                rockstar.addPlaylist(playlist);
-                utilizadorAtual.addPlaylist(playlist);
-                JOptionPane.showMessageDialog(this,"A playlist "+playlist.getNome()+" foi criada");
-                frame.dispatchEvent(new WindowEvent(frame,WindowEvent.WINDOW_CLOSING));
-                panelPlaylists.printPlaylists(utilizadorAtual.getPlaylistsProprias());
-
-            }
-            else{
-                Playlist playlist=new Playlist(txtNome.getText(), false);
-                rockstar.addPlaylist(playlist);
-                utilizadorAtual.addPlaylist(playlist);
-                JOptionPane.showMessageDialog(this,"A playlist "+playlist.getNome()+" foi criada");
-                frame.dispatchEvent(new WindowEvent(frame,WindowEvent.WINDOW_CLOSING));
-            }
-        }
-        else if (clicked==btnCancelar){
-            frame.dispatchEvent(new WindowEvent(frame,WindowEvent.WINDOW_CLOSING));
-        }*/
     }
 
     public JButton getBtnCriar() {

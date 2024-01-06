@@ -186,6 +186,9 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
         sorter.setSortable(3, true);
     }
 
+    /**Faz o update da tabela central consoante as músicas que são escolhidas para ser apresentadas.
+     * @param musicas músicas que vão ser apresentadas na tabela central
+     */
     public void printMusicas(ArrayList<Musica> musicas) {
         listaMusicasAtual = musicas;
 

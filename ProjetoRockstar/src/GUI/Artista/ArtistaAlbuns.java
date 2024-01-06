@@ -304,6 +304,9 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
         }
     }
 
+    /**Faz o update do JPanel onde são apresentadas os albuns consoante estes vão sendo adicionados. A cada botão está associado um album.
+     * @param albuns albuns que vão ser apresentados no jpanel.
+     */
     public void printAlbuns(ArrayList<Album> albuns){
         panelAlbuns.removeAll();
         btnListaAlbuns.clear();
@@ -349,6 +352,4 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
         cor = Color.RGBtoHSB(red, green, blue, cor);
         componente.setBackground(Color.getHSBColor(cor[0], cor[1], cor[2]));
     }
-
-
 }

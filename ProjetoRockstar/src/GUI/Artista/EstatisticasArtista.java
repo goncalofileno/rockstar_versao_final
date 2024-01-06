@@ -69,6 +69,9 @@ public class EstatisticasArtista extends JPanel {
         add(btnTops);
     }
 
+    /**Faz o update das estatísticas que são apresentadas no JPanel sempre que existe alguma ação que modifique algum
+     * dos valores que lá é apresentado.
+     */
     public void updateEstatisticas(){
         panelEstatisticas.removeAll();
         panelEstatisticas.revalidate();
@@ -112,6 +115,8 @@ public class EstatisticasArtista extends JPanel {
 
     }
 
+    /**Criação e atualização da frame e dos JPanels onde são apresentados os dados relativos ao top cinco de artistas e de músicas.
+     */
     private void setFrmTops(){
         frmTops.setModal(true);
         frmTops.setLayout(null);
