@@ -24,6 +24,9 @@ public class Artista extends Utilizador implements Serializable {
     public String getPin() {
         return pin;
     }
+    public ArrayList<Album> getAlbuns() {
+        return albuns;
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////ADDERS///////////////////////////////////////////////////
     public void addAlbum(Album album) {
@@ -50,11 +53,6 @@ public class Artista extends Utilizador implements Serializable {
         }
         return false;
     }
-
-    public ArrayList<Album> getAlbuns() {
-        return albuns;
-    }
-
     public boolean verificarAlbum(String titulo){
         for (int i=0;i<albuns.size();i++){
             if(albuns.get(i).getNome().equals(titulo)){
