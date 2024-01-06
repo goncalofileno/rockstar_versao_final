@@ -103,7 +103,7 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
         int witdh30=resizeWidth(30);
         int height50=resizeHeight(50);
         int height30=resizeHeight(30);
-        imagem.setBounds(lblEmpresa.getX()-witdh40,lblEmpresa.getY()-resizeHeight(8),witdh30,height50);
+        imagem.setBounds(lblEmpresa.getX()-witdh40,lblEmpresa.getY(),witdh30,height50);
         ImageIcon icon =new ImageIcon("rockstar.png");
         Image imagem2;
         imagem2=icon.getImage().getScaledInstance(witdh30,height30,Image.SCALE_SMOOTH);
