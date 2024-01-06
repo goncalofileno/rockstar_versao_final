@@ -122,9 +122,12 @@ public class RockstarInc implements Serializable {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////MÉTODOS DIVERSOS//////////////////////////////////////////////////////////
 
+
     /**
      * Método verifica a existencia de utilizador através de username e caso o utilizador exista devolve o objeto do mesmo,
      * devolve NULL caso nao encontre.
+     * @param username username a verificar se existe
+     * @return retorna o objeto Utilizador caso encontre um.
      */
     public Utilizador verificarUtilizador(String username) {
         for (int i = 0; i < artistasList.size(); i++) {

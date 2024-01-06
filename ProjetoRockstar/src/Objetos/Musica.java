@@ -142,7 +142,6 @@ public class Musica implements Serializable {
         this.estadoAtividade = estadoAtividade;
     }
 
-
     /**
      * Incrementa as vendas.
      */
