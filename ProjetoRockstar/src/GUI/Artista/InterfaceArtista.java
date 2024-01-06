@@ -9,8 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**Construtor do JPanel principal do Artista que tem todos os elementos necessários para a aplicação funcionar com sucesso
- */
+
 public class InterfaceArtista extends JPanel implements ActionListener {
     private RockstarInc rockstar;
     private Artista utilizadorAtual;
@@ -23,6 +22,8 @@ public class InterfaceArtista extends JPanel implements ActionListener {
     private EstatisticasArtista estatisticasArtista;
     private PesquisaArtista pesquisaArtista;
 
+    /**Construtor do JPanel principal do Artista que tem todos os elementos necessários para a aplicação funcionar com sucesso
+     */
     public InterfaceArtista(RockstarInc rockstar, Artista utilizadorAtual, JFrame frame, LoginPanel panelLogin){
         this.rockstar=rockstar;
         this.utilizadorAtual=utilizadorAtual;

@@ -35,7 +35,7 @@ public class PanelCarrinho extends JPanel {
         setSize(resizeWidth(200),resizeHeight(400));
 
         Font font=new Font("SansSerif",Font.BOLD,12);
-        lblCarrinho=new JLabel("🛒Carrinho:");
+        lblCarrinho=new JLabel("🛒 Carrinho:");
         lblCarrinho.setFont(font);
         lblCarrinho.setForeground(new Color(255, 195, 0));
         lblCarrinho.setBounds(resizeWidth(10),resizeHeight(0),resizeWidth(90),resizeHeight(30));
