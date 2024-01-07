@@ -222,7 +222,7 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
             frmCriarAlbum.setVisible(true);
         }
         else if(clicked==btnCriarAlbum2) {
-            if (!txtNomeAlbum.getText().equals("")) {
+            if (!txtNomeAlbum.getText().equals("") && !txtNomeAlbum.getText().replace(" ","").equals("")) {
                 if (utilizadorAtual.verificarAlbum(txtNomeAlbum.getText())) {
                     txtNomeAlbum.setText("");
                     JOptionPane.showMessageDialog(frmCriarAlbum, "Já tem um Álbum com este nome 😔");
@@ -236,7 +236,12 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
                     txtNomeAlbum.setText("");
                     frmCriarAlbum.dispatchEvent(new WindowEvent(frmCriarAlbum, WindowEvent.WINDOW_CLOSING));
                     updateComboAlbuns(utilizadorAtual.titulosAlbuns());
+                    JOptionPane.showMessageDialog(frmCriarAlbum, "Álbum adicionado com sucesso 😀");
                 }
+            }
+            else{
+                txtNomeAlbum.setText("");
+                JOptionPane.showMessageDialog(frmCriarAlbum, "O nome inserido é inválido 😔");
             }
 
         }
@@ -251,7 +256,7 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
         }
         else if(clicked==btnCriarMusica2) {
             try {
-                if (!txtNomeMusica.getText().equals("") && txtPreco.getText().matches("\\d+(\\.\\d+)*")) {
+                if (!txtNomeMusica.getText().equals("") && txtPreco.getText().matches("\\d+(\\.\\d+)*") && !txtNomeMusica.getText().replace(" ","").equals("")) {
                     if (!utilizadorAtual.verificarMusica(txtNomeMusica.getText())) {
                         String comboGenero = (String) cmbGeneroMusica.getSelectedItem();
                         if (cmbAlbum.getSelectedIndex() == 0) {
@@ -263,6 +268,7 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
                             txtPreco.setText("");
                             checkVisibilidade.setSelected(true);
                             frmCriarMusica.dispatchEvent(new WindowEvent(frmCriarMusica,WindowEvent.WINDOW_CLOSING));
+                            JOptionPane.showMessageDialog(frmCriarMusica, "Música adicionada com sucesso 😀");
                         } else {
                             rockstar.addMusica(new Musica(txtNomeMusica.getText(), utilizadorAtual, comboGenero, Double.valueOf(txtPreco.getText()), utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex()-1),checkVisibilidade.isSelected()));
                             tabelaArtista.printMusicas(utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex()-1).getMusicas());
@@ -272,12 +278,14 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
                             txtPreco.setText("");
                             checkVisibilidade.setSelected(true);
                             frmCriarMusica.dispatchEvent(new WindowEvent(frmCriarMusica,WindowEvent.WINDOW_CLOSING));
+                            JOptionPane.showMessageDialog(frmCriarMusica, "Música adicionada com sucesso 😀");
                         }
                     } else {
                         txtNomeMusica.setText("");
                         JOptionPane.showMessageDialog(frmCriarMusica, "Já tem uma música com este nome 😔");
                     }
                 } else {
+                    txtNomeMusica.setText("");
                     JOptionPane.showMessageDialog(frmCriarMusica, "Os dados inseridos são inválidos 😔");
                 }
             }catch(NumberFormatException f){

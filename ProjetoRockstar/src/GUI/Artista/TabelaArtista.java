@@ -472,6 +472,4 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
 
         frmPreco.add(panelPreco);
     }
-
-
 }

@@ -120,8 +120,4 @@ public class Frame extends JFrame implements ActionListener{
         heightAtualizada=(int)(height*ecra.getHeight())/864;
         return heightAtualizada;
     }
-
-
-
-
 }

@@ -87,7 +87,7 @@ public class InterfaceCliente extends JPanel implements ActionListener {
 
         btnRemoverPlaylist=new JButton("Remover Playlist 🗑");
         btnRemoverPlaylist.setFont(font);
-        btnRemoverPlaylist.setBounds(panelCarrinho.getX()-resizeWidth(155)-50,btnLoja.getY(),resizeWidth(140),resizeHeight(30));
+        btnRemoverPlaylist.setBounds(panelCarrinho.getX()-resizeWidth(155)-50,btnLoja.getY(),resizeWidth(150),resizeHeight(30));
         btnRemoverPlaylist.addActionListener(this);
         btnRemoverPlaylist.setVisible(false);
         add(btnRemoverPlaylist);
