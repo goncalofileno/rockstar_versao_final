@@ -296,12 +296,12 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
                         musicaSelecionada.novoPreco(Double.valueOf(txtPreco.getText()));
                         printMusicas(listaMusicasAtual);
                         frmPreco.dispatchEvent(new WindowEvent(frmPreco, WindowEvent.WINDOW_CLOSING));
-                    } else JOptionPane.showMessageDialog(interfaceArtista, "Dados inseridos inválidos");
+                    } else JOptionPane.showMessageDialog(interfaceArtista, "Dados inseridos inválidos 😔");
                 }
-                else JOptionPane.showMessageDialog(interfaceArtista,"Dados inseridos inválidos");
+                else JOptionPane.showMessageDialog(interfaceArtista,"Dados inseridos inválidos 😔");
             }
             catch(NumberFormatException j){
-                    JOptionPane.showMessageDialog(interfaceArtista, "Dados inseridos inválidos");
+                    JOptionPane.showMessageDialog(interfaceArtista, "Dados inseridos inválidos 😔");
                 }
         }
         for (int i = 0; i < btnAlbuns.size(); i++) {
@@ -375,7 +375,7 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
                         printMusicas(utilizadorAtual.getTotalMusicas());
                     }
                     else{
-                        JOptionPane.showMessageDialog(interfaceArtista,"Esta música já tem um álbum atribuido");
+                        JOptionPane.showMessageDialog(interfaceArtista,"Esta música já tem um álbum atribuido 😔");
                     }
 
                 }

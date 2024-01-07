@@ -37,27 +37,27 @@ public class ClientePlaylists extends JPanel implements ActionListener {
         mudarCorRGB(this,0,70,112);
 
         Font font = new Font("SansSerif", Font.BOLD, 12);
-        lblPlaylists = new JLabel("\uD83C\uDFB6 Playlists:");
+        lblPlaylists = new JLabel("🎶 Playlists:");
         lblPlaylists.setFont(font);
         lblPlaylists.setForeground(new Color(255, 195, 0));
         lblPlaylists.setBounds(resizeWidth(10), resizeHeight(0), resizeWidth(90), resizeHeight(30));
         add(lblPlaylists);
 
         Font font1 = new Font("SansSerif", Font.BOLD, 11);
-        btnCriarPlaylist = new JButton("Criar Playlist \uD83C\uDFB5");
+        btnCriarPlaylist = new JButton("Criar Playlist 🎶");
         btnCriarPlaylist.setFont(font1);
         btnCriarPlaylist.setBounds(lblPlaylists.getX(), resizeHeight(250), resizeWidth(145), resizeHeight(25));
         btnCriarPlaylist.addActionListener(this);
         add(btnCriarPlaylist);
 
-        btnCriadorAI = new JButton("Criar Playlist AI \uD83E\uDD16");
+        btnCriadorAI = new JButton("Criar Playlist AI 🤖");
         btnCriadorAI.setFont(font1);
         btnCriadorAI.setBounds(btnCriarPlaylist.getX(), btnCriarPlaylist.getY() + resizeHeight(45), btnCriarPlaylist.getWidth(), btnCriarPlaylist.getHeight());
         btnCriadorAI.addActionListener(this);
         add(btnCriadorAI);
 
         Font font2 = new Font("SansSerif", Font.BOLD, 12);
-        btnBiblioteca = new JButton("Biblioteca \uD83D\uDCC2");
+        btnBiblioteca = new JButton("Biblioteca 📂");
         btnBiblioteca.setFont(font2);
         btnBiblioteca.setBounds(btnCriadorAI.getX(), btnCriadorAI.getY() + resizeHeight(165), resizeWidth(110), resizeHeight(25));
         add(btnBiblioteca);
@@ -75,7 +75,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
 
         ///////////////////////Criação da frame de criar playlist/////////////////////////////////////
         frameCriarPlaylist=new JDialog();
-        frameCriarPlaylist.setTitle("Nova Playlist");
+        frameCriarPlaylist.setTitle("Nova Playlist 🎶");
         panelCriarPlaylist=new CriarPlaylistPanel(rockstar,utilizadorAtual,frameCriarPlaylist,this);
         frameCriarPlaylist.setLayout(null);
         frameCriarPlaylist.setModal(true);
@@ -95,7 +95,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
         //////////////Criaçao da frame PlaylistAI/////////////////////////////////
 
         framePlaylistAI=new JDialog();
-        framePlaylistAI.setTitle("Playlist AI");
+        framePlaylistAI.setTitle("Playlist AI 🤖");
         framePlaylistAI.setModal(true);
         framePlaylistAI.setLayout(null);
         framePlaylistAI.setLocationRelativeTo(null);
@@ -155,7 +155,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
         else if(clicked==panelCriarPlaylist.getBtnCriar()) {
 
             if (panelCriarPlaylist.getTxtNome().getText().isEmpty()){
-                JOptionPane.showMessageDialog(panelCriarPlaylist,"O nome inserido é inválido ");
+                JOptionPane.showMessageDialog(panelCriarPlaylist,"O nome inserido é inválido 😔");
             }
             else {
                 if (panelCriarPlaylist.getCheckVisibilidade().isSelected()) {
@@ -170,7 +170,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
                     tabelaCliente.getMenuBiblioteca11().add(new JMenuItem(playlist.getNome()));
                     tabelaCliente.getMenuBiblioteca1().add(tabelaCliente.getMenuBiblioteca11().get(tabelaCliente.getMenuBiblioteca11().size()-1));
                     tabelaCliente.updateActionsListeners();
-                    JOptionPane.showMessageDialog(frameCriarPlaylist, "A playlist " + playlist.getNome() + " foi criada");
+                    JOptionPane.showMessageDialog(frameCriarPlaylist, "A playlist " + playlist.getNome() + " foi criada 😀");
 
                 } else {
                     Playlist playlist = new Playlist(panelCriarPlaylist.getTxtNome().getText(), false);
@@ -184,7 +184,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
                     tabelaCliente.getMenuBiblioteca11().add(new JMenuItem(playlist.getNome()));
                     tabelaCliente.getMenuBiblioteca1().add(tabelaCliente.getMenuBiblioteca11().get(tabelaCliente.getMenuBiblioteca11().size()-1));
                     tabelaCliente.updateActionsListeners();
-                    JOptionPane.showMessageDialog(frameCriarPlaylist, "A playlist " + playlist.getNome() + " foi criada");
+                    JOptionPane.showMessageDialog(frameCriarPlaylist, "A playlist " + playlist.getNome() + " foi criada 😀");
                 }
 
             }
@@ -205,7 +205,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
 
             try {
                 if (panelPlaylistAI.getTxtNumeroMusicas().getText().isEmpty() || panelPlaylistAI.getTxtNomePlaylist().getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(panelPlaylistAI, "Os dados inseridos são inválidos");
+                    JOptionPane.showMessageDialog(panelPlaylistAI, "Os dados inseridos são inválidos 😔");
                 } else {
                     if (Integer.valueOf(panelPlaylistAI.getTxtNumeroMusicas().getText()) > 0) {
                         Playlist playlistAI = utilizadorAtual.criaPlaylistAI(panelPlaylistAI.getTxtNomePlaylist().getText(), Integer.valueOf(panelPlaylistAI.getTxtNumeroMusicas().getText()), comboGenero, selectedVisibilidade);
@@ -225,12 +225,12 @@ public class ClientePlaylists extends JPanel implements ActionListener {
                             tabelaCliente.updateActionsListeners();
                             framePlaylistAI.dispatchEvent(new WindowEvent(framePlaylistAI, WindowEvent.WINDOW_CLOSING));
                         }
-                        else JOptionPane.showMessageDialog(frame,"Não tem músicas deste género");
-                    }else JOptionPane.showMessageDialog(panelPlaylistAI, "Insira um número de músicas válido");
+                        else JOptionPane.showMessageDialog(frame,"Não tem músicas deste género 😔");
+                    }else JOptionPane.showMessageDialog(panelPlaylistAI, "Insira um número de músicas válido 😔");
                 }
             }
             catch(NumberFormatException j){
-                JOptionPane.showMessageDialog(tabelaCliente,"Os dados inseridos são inválidos");
+                JOptionPane.showMessageDialog(tabelaCliente,"Os dados inseridos são inválidos 😔");
             }
         }
         else if(clicked==panelPlaylistAI.getBtnCancelar()){

@@ -36,7 +36,7 @@ public class EstatisticasArtista extends JPanel {
 
         Font font=new Font("SansSerif",Font.BOLD,12);
         Font font1=new Font("SansSerif",Font.BOLD,13);
-        lblEstatisticas=new JLabel("Estatísticas da Rockstar:");
+        lblEstatisticas=new JLabel("📊 Estatísticas da Rockstar:");
         lblEstatisticas.setFont(font1);
         lblEstatisticas.setForeground(new Color(255,195,0));
         lblEstatisticas.setBounds(resizeWidth(10),resizeHeight(0),resizeWidth(180),resizeHeight(30));
@@ -56,7 +56,7 @@ public class EstatisticasArtista extends JPanel {
         updateEstatisticas();
 
         frmTops=new JDialog();
-        frmTops.setTitle("Tops de Vendas");
+        frmTops.setTitle("Tops de Vendas 🏆");
         btnTops=new JButton("Ver Tops 🏆");
         btnTops.setBounds(scroll.getX()+resizeWidth(40),scroll.getY()+scroll.getHeight()+resizeHeight(10),resizeWidth(110),resizeHeight(30));
         btnTops.setFont(font);

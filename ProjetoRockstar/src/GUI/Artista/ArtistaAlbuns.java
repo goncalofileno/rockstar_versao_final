@@ -88,7 +88,7 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
 
         ///////////////////////////////////////PANEL DE CRIAÇÃO DE ALBUM//////////////////////////////
         frmCriarAlbum=new JDialog();
-        frmCriarAlbum.setTitle("Criação de Album");
+        frmCriarAlbum.setTitle("Criação de Album 💽");
         frmCriarAlbum.setModal(true);
         panelCriarAlbum=new JPanel();
 
@@ -139,7 +139,7 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
 
         //////////////////////PAINEL DE CRIAÇÃO DE MUSICA////////////////////////////////////
         frmCriarMusica=new JDialog();
-        frmCriarMusica.setTitle("Criação de Música");
+        frmCriarMusica.setTitle("Criação de Música 🎼");
         frmCriarMusica.setModal(true);
         panelCriarMusica=new JPanel();
 
@@ -155,12 +155,12 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
 
         lblNomeMusica=new JLabel("Nome da Música");
         lblNomeMusica.setFont(font);
-        lblNomeMusica.setBounds(resizeWidth(5),resizeHeight(15),resizeWidth(100),resizeHeight(25));
+        lblNomeMusica.setBounds(resizeWidth(5),resizeHeight(15),resizeWidth(120),resizeHeight(25));
         panelCriarMusica.add(lblNomeMusica);
 
         txtNomeMusica =new JTextField(30);
         txtNomeMusica.setFont(font);
-        txtNomeMusica.setBounds(lblNomeMusica.getX()+lblNomeAlbum.getWidth()-resizeWidth(20),lblNomeAlbum.getY(),resizeWidth(100),resizeHeight(30));
+        txtNomeMusica.setBounds(lblNomeMusica.getX()+10+lblNomeAlbum.getWidth()-resizeWidth(20),lblNomeAlbum.getY(),resizeWidth(100),resizeHeight(30));
         panelCriarMusica.add(txtNomeMusica);
 
         lblGeneroMusica=new JLabel("Género");
@@ -225,7 +225,7 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
             if (!txtNomeAlbum.getText().equals("")) {
                 if (utilizadorAtual.verificarAlbum(txtNomeAlbum.getText())) {
                     txtNomeAlbum.setText("");
-                    JOptionPane.showMessageDialog(frmCriarAlbum, "Já tem um Álbum com este nome");
+                    JOptionPane.showMessageDialog(frmCriarAlbum, "Já tem um Álbum com este nome 😔");
                 } else {
                     String comboGenero = (String) cmbGenero.getSelectedItem();
                     rockstar.addAlbum(new Album(txtNomeAlbum.getText(), comboGenero, utilizadorAtual));
@@ -275,14 +275,14 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
                         }
                     } else {
                         txtNomeMusica.setText("");
-                        JOptionPane.showMessageDialog(frmCriarMusica, "Já tem uma música com este nome");
+                        JOptionPane.showMessageDialog(frmCriarMusica, "Já tem uma música com este nome 😔");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(frmCriarMusica, "Os dados inseridos são inválidos");
+                    JOptionPane.showMessageDialog(frmCriarMusica, "Os dados inseridos são inválidos 😔");
                 }
             }catch(NumberFormatException f){
                 txtPreco.setText("");
-                JOptionPane.showMessageDialog(frmCriarMusica,"Os dados inseridos são inválidos");
+                JOptionPane.showMessageDialog(frmCriarMusica,"Os dados inseridos são inválidos 😔");
             }
 
         }

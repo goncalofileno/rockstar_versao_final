@@ -85,9 +85,9 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         btnLoja.addActionListener(this);
         add(btnLoja);
 
-        btnRemoverPlaylist=new JButton("Remover Playlist");
+        btnRemoverPlaylist=new JButton("Remover Playlist 🗑");
         btnRemoverPlaylist.setFont(font);
-        btnRemoverPlaylist.setBounds(panelCarrinho.getX()-resizeWidth(155),btnLoja.getY(),resizeWidth(140),resizeHeight(30));
+        btnRemoverPlaylist.setBounds(panelCarrinho.getX()-resizeWidth(155)-50,btnLoja.getY(),resizeWidth(140),resizeHeight(30));
         btnRemoverPlaylist.addActionListener(this);
         btnRemoverPlaylist.setVisible(false);
         add(btnRemoverPlaylist);
@@ -99,10 +99,10 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         btnAlterarVisibilidade.setVisible(false);
         add(btnAlterarVisibilidade);
 
-        lblAlterarVisibilidade=new JLabel("Visibilidade da Playlist:");
+        lblAlterarVisibilidade=new JLabel("Visibilidade:");
         lblAlterarVisibilidade.setFont(font);
         lblAlterarVisibilidade.setForeground(new Color(255, 195, 0));
-        lblAlterarVisibilidade.setBounds(btnAlterarVisibilidade.getX()-resizeWidth(140),btnRemoverPlaylist.getY(),resizeWidth(140),resizeHeight(30));
+        lblAlterarVisibilidade.setBounds(btnAlterarVisibilidade.getX()-resizeWidth(80),btnRemoverPlaylist.getY(),resizeWidth(140),resizeHeight(30));
         lblAlterarVisibilidade.setVisible(false);
         add(lblAlterarVisibilidade);
 
@@ -251,13 +251,13 @@ public class InterfaceCliente extends JPanel implements ActionListener {
             tabelaCliente.setPlaylist(null);
         }
         else if(clicked==btnAlterarVisibilidade){
-            if(btnAlterarVisibilidade.getText().equals("Privada")){
+            if(btnAlterarVisibilidade.getText().equals("Privada 🔒")){
                 tabelaCliente.getPlaylist().setVisibilidade(true);
-                btnAlterarVisibilidade.setText("Pública");
+                btnAlterarVisibilidade.setText("Pública 🔓");
             }
             else{
                 tabelaCliente.getPlaylist().setVisibilidade(false);
-                btnAlterarVisibilidade.setText("Privada");
+                btnAlterarVisibilidade.setText("Privada 🔒");
             }
         }
         else if(clicked==panelCarrinho.getBtnReset()){
@@ -274,10 +274,10 @@ public class InterfaceCliente extends JPanel implements ActionListener {
                 atualizarLblSaldo();
                 panelCarrinho.getBtnCheckout().setEnabled(false);
                 panelCarrinho.getBtnReset().setEnabled(false);
-                JOptionPane.showMessageDialog(this,"Compra efetuada com sucesso");
+                JOptionPane.showMessageDialog(this,"Compra efetuada com sucesso 😀");
             }
             else{
-                JOptionPane.showMessageDialog(this,"Saldo insuficiente");
+                JOptionPane.showMessageDialog(this,"Saldo insuficiente 😔");
             }
         }
         else if(clicked==btnCarregar2){
@@ -287,16 +287,16 @@ public class InterfaceCliente extends JPanel implements ActionListener {
                     atualizarLblSaldo();
                     txtValor.setText("");
                     frmCarregamento.dispatchEvent(new WindowEvent(frmCarregamento, WindowEvent.WINDOW_CLOSING));
-                    JOptionPane.showMessageDialog(this, "Saldo adicionado com sucesso");
+                    JOptionPane.showMessageDialog(this, "Saldo adicionado com sucesso 😀");
                 }
                 else{
                     txtValor.setText("");
-                    JOptionPane.showMessageDialog(this,"O valor inserido é inválido");
+                    JOptionPane.showMessageDialog(this,"O valor inserido é inválido 😔");
                 }
             }
             catch (NumberFormatException q){
                 txtValor.setText("");
-                JOptionPane.showMessageDialog(this,"Dados inválidos");
+                JOptionPane.showMessageDialog(this,"Dados inválidos 😔");
             }
         }
         else if(clicked==btnLogout){

@@ -67,8 +67,7 @@ public class Cliente extends Utilizador implements Serializable {
     /**
      * Metodo criado para carregar o saldo do cliente, o mesmo recebe um valor e incrementa o atributo saldo do cliente.
      */
-    public void carregarSaldo(double carregamento) {
-        this.saldo += carregamento;
+    public void carregarSaldo(double carregamento) {this.saldo += carregamento;
     }
     /**
      * Metodo criado para descontar o saldo do Cliente, o mesmo recebe um valor e desconta no atributo Saldo do mesmo.

@@ -132,10 +132,10 @@ public class TabelaCliente extends JPanel implements ActionListener {
                                         panelCarrinho.getPanelCarrinho().add(Box.createRigidArea(new Dimension(0,3)));
                                     }
                                 } else {
-                                    JOptionPane.showMessageDialog(interfaceCliente, "Música adicionada à biblioteca com sucesso");
+                                    JOptionPane.showMessageDialog(interfaceCliente, "Música adicionada à  sua biblioteca com sucesso 😀");
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(interfaceCliente, "A música selecionada já se encontra no carrinho de compras.");
+                                JOptionPane.showMessageDialog(interfaceCliente, "A música selecionada já se encontra no seu carrinho de compras.");
                             }
                         } else {
                             JOptionPane.showMessageDialog(interfaceCliente, "Música já adquirida.");
@@ -213,23 +213,23 @@ public class TabelaCliente extends JPanel implements ActionListener {
                         if (utilizadorAtual.adicionaRating(musiceSelecionada, Integer.valueOf(txtRating.getText()))) {
                             frmRating.dispatchEvent(new WindowEvent(frmRating, WindowEvent.WINDOW_CLOSING));
                             printMusicas(listaMusicasAtual);
-                            JOptionPane.showMessageDialog(interfaceCliente, "Rating alterado com sucesso");
+                            JOptionPane.showMessageDialog(interfaceCliente, "Rating alterado com sucesso 😀");
                             txtRating.setText("");
                             frame.setEnabled(true);
                         } else {
                             frmRating.dispatchEvent(new WindowEvent(frmRating, WindowEvent.WINDOW_CLOSING));
                             printMusicas(listaMusicasAtual);
-                            JOptionPane.showMessageDialog(interfaceCliente, "Rating adicionado com sucesso");
+                            JOptionPane.showMessageDialog(interfaceCliente, "Rating adicionado com sucesso 😀");
                             txtRating.setText("");
                             frame.setEnabled(true);
                         }
                     }
                     else{
-                        JOptionPane.showMessageDialog(interfaceCliente,"O valor inserido é inválido");
+                        JOptionPane.showMessageDialog(interfaceCliente,"O valor inserido é inválido 😔");
                     }
                 }
                 catch (NumberFormatException j){
-                    JOptionPane.showMessageDialog(interfaceCliente,"Os dados introduzidos são inválidos");
+                    JOptionPane.showMessageDialog(interfaceCliente,"Os dados introduzidos são inválidos 😔");
                 }
             }
         });
@@ -503,14 +503,14 @@ public class TabelaCliente extends JPanel implements ActionListener {
                 setPlaylist(utilizadorAtual.getPlaylistsProprias().get(i));
 
                 if (playlist.isVisibilidade()) {
-                    interfaceCliente.getBtnAlterarVisibilidade().setText("Pública");
+                    interfaceCliente.getBtnAlterarVisibilidade().setText("Pública 🔓");
                     interfaceCliente.revalidate();
                     interfaceCliente.getBtnAlterarVisibilidade().revalidate();
                     interfaceCliente.repaint();
                     interfaceCliente.getBtnAlterarVisibilidade().repaint();
 
                 } else {
-                    interfaceCliente.getBtnAlterarVisibilidade().setText("Privada");
+                    interfaceCliente.getBtnAlterarVisibilidade().setText("Privada 🔒");
                     interfaceCliente.revalidate();
                     interfaceCliente.getBtnAlterarVisibilidade().revalidate();
                     interfaceCliente.repaint();
@@ -635,11 +635,11 @@ public class TabelaCliente extends JPanel implements ActionListener {
                         if (playlistMenu.addMusica(musiceSelecionada)) {
                             JOptionPane.showMessageDialog(interfaceCliente, "Música adicionada à playlist à " + playlistMenu.getNome());
                         } else {
-                            JOptionPane.showMessageDialog(interfaceCliente, "Esta música já se encontra na playlist selecionada");
+                            JOptionPane.showMessageDialog(interfaceCliente, "Esta música já se encontra na playlist selecionada 😔");
                         }
                     }
                     else{
-                        JOptionPane.showMessageDialog(interfaceCliente,"A música selecionada não está disponível para ser adicionada a playlists");
+                        JOptionPane.showMessageDialog(interfaceCliente,"A música selecionada não está disponível para ser adicionada a playlists 😔");
                     }
                 }
             });
