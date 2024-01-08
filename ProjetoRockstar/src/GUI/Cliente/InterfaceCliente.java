@@ -106,7 +106,7 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         lblAlterarVisibilidade.setVisible(false);
         add(lblAlterarVisibilidade);
 
-        lblSaldo=new JLabel("Saldo: "+String.valueOf(utilizadorAtual.getSaldo())+"€");
+        lblSaldo=new JLabel("Saldo: "+String.valueOf(tabelaCliente.limitarCasasDecimais(utilizadorAtual.getSaldo()))+"€");
         lblSaldo.setFont(font);
         lblSaldo.setForeground(new Color(255, 195, 0));
         lblSaldo.setBounds(panelCarrinho.getX(),lblUser.getY(),resizeWidth(80),resizeHeight(20));
@@ -282,12 +282,12 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         }
         else if(clicked==btnCarregar2){
             try{
-                if(Double.valueOf(txtValor.getText())>0) {
-                    utilizadorAtual.carregarSaldo(Double.valueOf(txtValor.getText()));
-                    atualizarLblSaldo();
-                    txtValor.setText("");
-                    frmCarregamento.dispatchEvent(new WindowEvent(frmCarregamento, WindowEvent.WINDOW_CLOSING));
-                    JOptionPane.showMessageDialog(this, "Saldo adicionado com sucesso 😀");
+                if((Double.valueOf(txtValor.getText())>0) && (Double.valueOf(tabelaCliente.limitarCasasDecimais(Double.valueOf(txtValor.getText())*100.0))%1==0) ){
+                        utilizadorAtual.carregarSaldo(Double.valueOf(txtValor.getText()));
+                        atualizarLblSaldo();
+                        txtValor.setText("");
+                        frmCarregamento.dispatchEvent(new WindowEvent(frmCarregamento, WindowEvent.WINDOW_CLOSING));
+                        JOptionPane.showMessageDialog(this, "Saldo adicionado com sucesso 😀");
                 }
                 else{
                     txtValor.setText("");
@@ -333,7 +333,7 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         return panelCarrinho;
     }
     public void atualizarLblSaldo(){
-        lblSaldo.setText("Saldo: "+String.valueOf(utilizadorAtual.getSaldo())+"€");
+        lblSaldo.setText("Saldo: "+String.valueOf(tabelaCliente.limitarCasasDecimais(utilizadorAtual.getSaldo()))+"€");
     }
 
     public void limparCarrinho(){

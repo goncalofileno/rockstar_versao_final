@@ -617,7 +617,7 @@ public class TabelaCliente extends JPanel implements ActionListener {
     }
 
     public String limitarCasasDecimais(double valor){
-        DecimalFormat df=new DecimalFormat("#.#");
+        DecimalFormat df=new DecimalFormat("#.##");
         return df.format(valor);
     }
 

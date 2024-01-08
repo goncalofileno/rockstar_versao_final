@@ -4,6 +4,7 @@ import Objetos.Cliente;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class PanelCarrinho extends JPanel {
@@ -51,10 +52,10 @@ public class PanelCarrinho extends JPanel {
         scroll.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         add(scroll);
 
-        lblTotalCompra=new JLabel("Total: "+precoTotal+"€");
+        lblTotalCompra=new JLabel("Total: "+limitarCasasDecimais(precoTotal)+"€");
         lblTotalCompra.setFont(font);
         lblTotalCompra.setForeground(new Color(255, 195, 0));
-        lblTotalCompra.setBounds(lblCarrinho.getX(),scroll.getY()+scroll.getHeight()+resizeHeight(5),resizeWidth(75),resizeHeight(20));
+        lblTotalCompra.setBounds(lblCarrinho.getX(),scroll.getY()+scroll.getHeight()+resizeHeight(5),resizeWidth(100),resizeHeight(20));
         add(lblTotalCompra);
 
         btnCheckout =new JButton("Comprar 💸");
@@ -109,7 +110,7 @@ public class PanelCarrinho extends JPanel {
     }
 
     public void atualizarLblTotalCompra() {
-        lblTotalCompra.setText(("Total: "+precoTotal+"€"));
+        lblTotalCompra.setText(("Total: "+limitarCasasDecimais(precoTotal)+"€"));
     }
 
     public double getPrecoTotal(){
@@ -126,5 +127,10 @@ public class PanelCarrinho extends JPanel {
 
     public void resetPrecoTotal(){
         precoTotal=0;
+    }
+
+    public String limitarCasasDecimais(double valor){
+        DecimalFormat df=new DecimalFormat("#.##");
+        return df.format(valor);
     }
 }

@@ -23,79 +23,7 @@ public class RockstarInc implements Serializable {
         musicasList = new ArrayList<>();
 
         //////////////////////////////////////VALORES PARA TESTE DA APP/////////////////////////////////////////////////
-        addCliente("admin", "admin", "admin");
-        //Artista as = new Artista("as", "as", "as", "1111");
-        addArtista("as", "as", "assss", "1111");
-
-        Album album1 = new Album("Rock in Rio", "Rock 🎸", artistasList.get(0));
-        albunsList.add(album1);
-        //as.addAlbum(album1);
-
-        //Artista zecabra = new Artista("zecabra", "zecabra", "Zé Cabra", "1234");
-        // artistasList.add(zecabra);
-        Artista marialeal = new Artista("marialeal", "marialeal", "Maria Leal", "1234");
-        artistasList.add(marialeal);
-        Artista anamalhoa = new Artista("anamalhoa", "anamalhoa", "Ana Malhoa", "1234");
-        artistasList.add(anamalhoa);/*
-        Artista quimbarreiros = new Artista("quimbarreiros", "quimbarreiros", "Quim Barreiros", "1234");
-        artistasList.add(quimbarreiros);
-        Artista rosinha = new Artista("rosinha", "rosinha", "Rosinha", "1234");
-        artistasList.add(rosinha);*/
-
-        Musica deixei = new Musica("Deixei tudo por ela", artistasList.get(0), "Popular 🥁", 0.00, true);
-        musicasList.add(deixei);
-        deixei.novoPreco(1.5);
-        deixei.novoPreco(2.5);
-       /* Musica voltei = new Musica("Voltei para ela", zecabra, "Popular", 0.00,true);
-        musicasList.add(voltei);*/
-        Musica aqui = new Musica("Aqui só para ti", marialeal, "Popular 🥁", 0.00, true);
-        musicasList.add(aqui);
-        Musica traidora = new Musica("Traidora", marialeal, "Popular 🥁", 0.00, true);
-        musicasList.add(traidora);
-        Musica turbinada = new Musica("Turbinada", anamalhoa, "Popular 🥁", 2.5, true);
-        musicasList.add(turbinada);
-        turbinada.novoPreco(1.5);
-        turbinada.novoPreco(1);
-        /*Musica elamexe = new Musica("Ela mexe", anamalhoa, "Pop Popular", 1.5,true);
-        musicasList.add(elamexe);
-        Musica bacalhau = new Musica("Deixa-me cheirar teu bacalhau", quimbarreiros, "Popular", 3.00,true);
-        musicasList.add(bacalhau);*/
-        Musica casar = new Musica("Qual o melhor dia para casar", artistasList.get(0), "Popular 🥁", 2.5, true);
-        musicasList.add(casar);
-       /* Musica chupo = new Musica("Eu chupo", artistasList.get(0), "Popular", 0.00,true);
-        musicasList.add(chupo);
-        Musica pacote = new Musica("Eu levo no pacote", rosinha, "Popular", 1.5,true);
-        musicasList.add(pacote);*/
-
-        ArrayList musicaPopPopular = new ArrayList<Musica>();
-        musicaPopPopular.add(aqui);
-        musicaPopPopular.add(traidora);
-
-        ArrayList musicaPopular = new ArrayList<Musica>();
-        musicaPopular.add(deixei);
-        musicaPopular.add(casar);
-
-        Album album2 = new Album("Popular in Rio", "Popular 🥁", artistasList.get(0));
-        albunsList.add(album2);
-        album2.addMusica(deixei);
-        artistasList.get(0).removerMusicaDeSingles(deixei);
-        album2.addMusica(casar);
-        artistasList.get(0).removerMusicaDeSingles(casar);
-
-        //as.addAlbum(album2);
-
-        Playlist PopPopular = new Playlist(musicaPopPopular, "Musicas de Pop Popular", true);
-        Playlist Popular = new Playlist(musicaPopular, "Musica Popular", true);
-
-        clientesList.get(0).addPlaylist(PopPopular);
-        clientesList.get(0).addPlaylist(Popular);
-
-        clientesList.get(0).addBiblioteca(aqui);
-        clientesList.get(0).addBiblioteca(traidora);
-        clientesList.get(0).addBiblioteca(deixei);
-        clientesList.get(0).addBiblioteca(casar);
-
-        getTopArtistasVendidos();
+        criarTeste();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -320,9 +248,9 @@ public class RockstarInc implements Serializable {
         for (int i = 0; i < albunsList.size(); i++) {
             if (albunsList.get(i).getGenero().equals("Rock 🎸")) {
                 albunsPorGenero[0]++;
-            } else if (albunsList.get(i).getGenero().equals("Rap 🎤")) {
+            } else if (albunsList.get(i).getGenero().equals("Rap 🔫")) {
                 albunsPorGenero[1]++;
-            } else if (albunsList.get(i).getGenero().equals("Pop 🔫")) {
+            } else if (albunsList.get(i).getGenero().equals("Pop 🎤")) {
                 albunsPorGenero[2]++;
             } else if (albunsList.get(i).getGenero().equals("Clássica 🎻")) {
                 albunsPorGenero[3]++;
@@ -408,6 +336,179 @@ public class RockstarInc implements Serializable {
             top5.add(totalMusicas.get(i));
         }
         return top5;
+    }
+
+    public void criarTeste(){
+        addCliente("admin", "admin", "Cliente Teste");
+
+        addArtista("as", "as", "Artista Teste", "1111");
+
+        Artista anamalhoa = new Artista("anamalhoa", "anamalhoa", "Ana Malhoa", "1234");
+        artistasList.add(anamalhoa);
+
+        Musica turbinada = new Musica("Turbinada", anamalhoa, "Popular 🥁", 2.5, true);
+        musicasList.add(turbinada);
+        Musica rebolation = new Musica("Rebolation", anamalhoa, "Popular 🥁", 3.0, true);
+        musicasList.add(rebolation);
+        Musica chuvaEstrelas = new Musica("Chuva de Estrelas", anamalhoa, "Popular 🥁", 2.8, true);
+        musicasList.add(chuvaEstrelas);
+        Musica poderosa = new Musica("Poderosa", anamalhoa, "Popular 🥁", 2.7, true);
+        musicasList.add(poderosa);
+        Musica vemSerFeliz = new Musica("Vem Ser Feliz", anamalhoa, "Popular 🥁", 2.9, true);
+        musicasList.add(vemSerFeliz);
+        Musica dancaDoTchu = new Musica("Dança do Tchu Tcha Tcha", anamalhoa, "Popular 🥁", 3.2, true);
+        musicasList.add(dancaDoTchu);
+        Musica lokaLoka = new Musica("Loka Loka", anamalhoa, "Popular 🥁", 2.6, true);
+        musicasList.add(lokaLoka);
+        Musica telemovel = new Musica("Telemóvel", anamalhoa, "Popular 🥁", 3.1, true);
+        musicasList.add(telemovel);
+        Musica confiaEmMim = new Musica("Confia em Mim", anamalhoa, "Popular 🥁", 2.4, true);
+        musicasList.add(confiaEmMim);
+        Musica vouPartir = new Musica("Vou Partir", anamalhoa, "Popular 🥁", 2.8, true);
+        musicasList.add(vouPartir);
+
+        Artista xutosEPontapes = new Artista("xutosEPontapes", "xutosEPontapes", "Xutos e Pontapés", "1234");
+        artistasList.add(xutosEPontapes);
+
+        Musica contentores = new Musica("Contentores", xutosEPontapes, "Rock 🎸", 4.0, true);
+        Musica aiSeEleCai = new Musica("Ai Se Ele Cai", xutosEPontapes, "Rock 🎸", 3.5, true);
+        Musica circoDeFeras = new Musica("Circo de Feras", xutosEPontapes, "Rock 🎸", 3.8, true);
+        Musica maria = new Musica("Maria", xutosEPontapes, "Rock 🎸", 3.2, true);
+        Musica homensDoLeme = new Musica("Homens do Leme", xutosEPontapes, "Rock 🎸", 4.2, true);
+        Musica paraTiMaria = new Musica("Para Ti Maria", xutosEPontapes, "Rock 🎸", 3.7, true);
+        Musica chuvaDissolvente = new Musica("Chuva Dissolvente", xutosEPontapes, "Rock 🎸", 3.9, true);
+        Musica remarRemar = new Musica("Remar, Remar", xutosEPontapes, "Rock 🎸", 3.6, true);
+        Musica nAoSouOunico = new Musica("Não Sou o Único", xutosEPontapes, "Rock 🎸", 4.1, true);
+        Musica vicio = new Musica("Vício", xutosEPontapes, "Rock 🎸", 3.4, true);
+        musicasList.add(contentores);
+        musicasList.add(aiSeEleCai);
+        musicasList.add(circoDeFeras);
+        musicasList.add(maria);
+        musicasList.add(homensDoLeme);
+        musicasList.add(paraTiMaria);
+        musicasList.add(chuvaDissolvente);
+        musicasList.add(remarRemar);
+        musicasList.add(nAoSouOunico);
+        musicasList.add(vicio);
+
+        Artista samTheKid = new Artista("samTheKid", "samTheKid", "Sam The Kid", "1234");
+        artistasList.add(samTheKid);
+
+        Musica poetasDeKaraokes = new Musica("Poetas de Karaokes", samTheKid, "Rap 🔫", 3.8, true);
+        musicasList.add(poetasDeKaraokes);
+        Musica estamosAqui = new Musica("Estamos Aqui", samTheKid, "Rap 🔫", 4.2, true);
+        musicasList.add(estamosAqui);
+        Musica retrato = new Musica("Retrato", samTheKid, "Rap 🔫", 3.5, true);
+        musicasList.add(retrato);
+        Musica sofia = new Musica("Sofia", samTheKid, "Rap 🔫", 3.9, true);
+        musicasList.add(sofia);
+        Musica tudoMuda = new Musica("Tudo Muda", samTheKid, "Rap 🔫", 3.7, true);
+        musicasList.add(tudoMuda);
+        Musica naoPercebes = new Musica("Não Percebes", samTheKid, "Rap 🔫", 4.1, true);
+        musicasList.add(naoPercebes);
+        Musica oDeusNaoQuis = new Musica("O Deus Não Quis", samTheKid, "Rap 🔫", 3.6, true);
+        musicasList.add(oDeusNaoQuis);
+        Musica oRelatorio = new Musica("O Relatório", samTheKid, "Rap 🔫", 4.0, true);
+        musicasList.add(oRelatorio);
+        Musica kandandu = new Musica("Kandandu", samTheKid, "Rap 🔫", 3.4, true);
+        musicasList.add(kandandu);
+        Musica retrospectivaDeUmAmorProfundo = new Musica("Retrospectiva de um Amor Profundo", samTheKid, "Rap 🔫", 3.8, true);
+        musicasList.add(retrospectivaDeUmAmorProfundo);
+
+        Artista beethoven = new Artista("beethoven", "beethoven", "Beethoven", "1234");
+        artistasList.add(beethoven);
+
+        Musica sonataAoLuarmoonlight = new Musica("Sonata ao Luar (Moonlight Sonata)", beethoven, "Clássica 🎻", 6.5, true);
+        musicasList.add(sonataAoLuarmoonlight);
+        Musica sinfoniaNona = new Musica("Sinfonia Nona (Choral)", beethoven, "Clássica 🎻", 8.0, true);
+        musicasList.add(sinfoniaNona);
+        Musica paraElisa = new Musica("Para Elisa", beethoven, "Clássica 🎻", 4.2, true);
+        musicasList.add(paraElisa);
+        Musica concertoParaPianoNumero5 = new Musica("Concerto para Piano Número 5 (Imperador)", beethoven, "Clássica 🎻", 7.3, true);
+        musicasList.add(concertoParaPianoNumero5);
+        Musica sonataClaroDeLua = new Musica("Sonata Claro de Lua", beethoven, "Clássica 🎻", 5.8, true);
+        musicasList.add(sonataClaroDeLua);
+        Musica sonataApassionata = new Musica("Sonata Apassionata", beethoven, "Clássica 🎻", 6.0, true);
+        musicasList.add(sonataApassionata);
+        Musica trioArchduke = new Musica("Trio Archduke", beethoven, "Clássica 🎻", 6.8, true);
+        musicasList.add(trioArchduke);
+        Musica concertoViolino = new Musica("Concerto para Violino em Ré Maior", beethoven, "Clássica 🎻", 7.5, true);
+        musicasList.add(concertoViolino);
+        Musica missaSolemnis = new Musica("Missa Solemnis", beethoven, "Clássica 🎻", 9.0, true);
+        musicasList.add(missaSolemnis);
+        Musica coriolano = new Musica("Abertura Coriolano", beethoven, "Clássica 🎻", 5.7, true);
+        musicasList.add(coriolano);
+
+        Artista milesDavis = new Artista("milesDavis", "milesDavis", "Miles Davis", "1234");
+        artistasList.add(milesDavis);
+
+        Musica soWhat = new Musica("So What", milesDavis, "Jazz 🎺", 9.0, true);
+        musicasList.add(soWhat);
+        Musica kindOfBlue = new Musica("Kind of Blue", milesDavis, "Jazz 🎺", 11.2, true);
+        musicasList.add(kindOfBlue);
+        Musica freddieFreeloader = new Musica("Freddie Freeloader", milesDavis, "Jazz 🎺", 6.7, true);
+        musicasList.add(freddieFreeloader);
+        Musica blueInGreen = new Musica("Blue in Green", milesDavis, "Jazz 🎺", 5.4, true);
+        musicasList.add(blueInGreen);
+        Musica allBlues = new Musica("All Blues", milesDavis, "Jazz 🎺", 11.8, true);
+        musicasList.add(allBlues);
+        Musica summertime = new Musica("Summertime", milesDavis, "Jazz 🎺", 3.9, true);
+        musicasList.add(summertime);
+        Musica milestones = new Musica("Milestones", milesDavis, "Jazz 🎺", 7.5, true);
+        musicasList.add(milestones);
+        Musica roundMidnight = new Musica("Round Midnight", milesDavis, "Jazz 🎺", 5.6, true);
+        musicasList.add(roundMidnight);
+        Musica autumnLeaves = new Musica("Autumn Leaves", milesDavis, "Jazz 🎺", 8.2, true);
+        musicasList.add(autumnLeaves);
+        Musica nardis = new Musica("Nardis", milesDavis, "Jazz 🎺", 6.3, true);
+        musicasList.add(nardis);
+
+        Artista metallica = new Artista("metallica", "metallica", "Metallica", "1234");
+        artistasList.add(metallica);
+
+        Musica enterSandman = new Musica("Enter Sandman", metallica, "Metal 🤘", 5.5, true);
+        musicasList.add(enterSandman);
+        Musica masterOfPuppets = new Musica("Master of Puppets", metallica, "Metal 🤘", 8.4, true);
+        musicasList.add(masterOfPuppets);
+        Musica one = new Musica("One", metallica, "Metal 🤘", 7.1, true);
+        musicasList.add(one);
+        Musica nothingElseMatters = new Musica("Nothing Else Matters", metallica, "Metal 🤘", 6.2, true);
+        musicasList.add(nothingElseMatters);
+        Musica seekAndDestroy = new Musica("Seek & Destroy", metallica, "Metal 🤘", 6.8, true);
+        musicasList.add(seekAndDestroy);
+        Musica fadeToBlack = new Musica("Fade to Black", metallica, "Metal 🤘", 7.5, true);
+        musicasList.add(fadeToBlack);
+        Musica sadButTrue = new Musica("Sad But True", metallica, "Metal 🤘", 5.9, true);
+        musicasList.add(sadButTrue);
+        Musica theUnforgiven = new Musica("The Unforgiven", metallica, "Metal 🤘", 6.7, true);
+        musicasList.add(theUnforgiven);
+        Musica forWhomTheBellTolls = new Musica("For Whom the Bell Tolls", metallica, "Metal 🤘", 5.8, true);
+        musicasList.add(forWhomTheBellTolls);
+        Musica rideTheLightning = new Musica("Ride the Lightning", metallica, "Metal 🤘", 6.6, true);
+        musicasList.add(rideTheLightning);
+
+        Artista avicii = new Artista("avicii", "avicii", "Avicii", "1234");
+        artistasList.add(avicii);
+        Musica wakeMeUp = new Musica("Wake Me Up", avicii, "Electrónica 🎧", 4.7, true);
+        musicasList.add(wakeMeUp);
+        Musica levels = new Musica("Levels", avicii, "Electrónica 🎧", 3.9, true);
+        musicasList.add(levels);
+        Musica heyBrother = new Musica("Hey Brother", avicii, "Electrónica 🎧", 4.2, true);
+        musicasList.add(heyBrother);
+        Musica theNights = new Musica("The Nights", avicii, "Electrónica 🎧", 3.5, true);
+        musicasList.add(theNights);
+        Musica waitingForLove = new Musica("Waiting for Love", avicii, "Electrónica 🎧", 3.8, true);
+        musicasList.add(waitingForLove);
+        Musica withoutYou = new Musica("Without You", avicii, "Electrónica 🎧", 3.6, true);
+        musicasList.add(withoutYou);
+        Musica silhouettes = new Musica("Silhouettes", avicii, "Electrónica 🎧", 4.1, true);
+        musicasList.add(silhouettes);
+        Musica iCouldBeTheOne = new Musica("I Could Be the One", avicii, "Electrónica 🎧", 4.0, true);
+        musicasList.add(iCouldBeTheOne);
+        Musica levelsInTheAir = new Musica("Levels (In the Air)", avicii, "Electrónica 🎧", 3.7, true);
+        musicasList.add(levelsInTheAir);
+        Musica addictedToYou = new Musica("Addicted to You", avicii, "Electrónica 🎧", 3.4, true);
+        musicasList.add(addictedToYou);
     }
 }
 

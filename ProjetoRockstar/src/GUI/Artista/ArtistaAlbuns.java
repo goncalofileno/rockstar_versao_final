@@ -257,32 +257,34 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
         else if(clicked==btnCriarMusica2) {
             try {
                 if (!txtNomeMusica.getText().equals("") && txtPreco.getText().matches("\\d+(\\.\\d+)*") && !txtNomeMusica.getText().replace(" ","").equals("")) {
-                    if (!utilizadorAtual.verificarMusica(txtNomeMusica.getText())) {
-                        String comboGenero = (String) cmbGeneroMusica.getSelectedItem();
-                        if (cmbAlbum.getSelectedIndex() == 0) {
-                            rockstar.addMusica(new Musica(txtNomeMusica.getText(), utilizadorAtual, comboGenero, Double.valueOf(txtPreco.getText()),checkVisibilidade.isSelected()));
-                            tabelaArtista.printMusicas(utilizadorAtual.getTotalMusicas());
-                            estatisticasArtista.updateEstatisticas();
-                            interfaceArtista.setLblTabela("As minhas Músicas:");
-                            txtNomeMusica.setText("");
-                            txtPreco.setText("");
-                            checkVisibilidade.setSelected(true);
-                            frmCriarMusica.dispatchEvent(new WindowEvent(frmCriarMusica,WindowEvent.WINDOW_CLOSING));
-                            JOptionPane.showMessageDialog(frmCriarMusica, "Música adicionada com sucesso 😀");
+                    if (Double.valueOf(tabelaArtista.limitarCasasDecimais(Double.valueOf(txtPreco.getText())*100.0))%1==0) {
+                        if (!utilizadorAtual.verificarMusica(txtNomeMusica.getText())) {
+                            String comboGenero = (String) cmbGeneroMusica.getSelectedItem();
+                            if (cmbAlbum.getSelectedIndex() == 0) {
+                                rockstar.addMusica(new Musica(txtNomeMusica.getText(), utilizadorAtual, comboGenero, Double.valueOf(txtPreco.getText()), checkVisibilidade.isSelected()));
+                                tabelaArtista.printMusicas(utilizadorAtual.getTotalMusicas());
+                                estatisticasArtista.updateEstatisticas();
+                                interfaceArtista.setLblTabela("As minhas Músicas:");
+                                txtNomeMusica.setText("");
+                                txtPreco.setText("");
+                                checkVisibilidade.setSelected(true);
+                                frmCriarMusica.dispatchEvent(new WindowEvent(frmCriarMusica, WindowEvent.WINDOW_CLOSING));
+                                JOptionPane.showMessageDialog(frmCriarMusica, "Música adicionada com sucesso 😀");
+                            } else {
+                                rockstar.addMusica(new Musica(txtNomeMusica.getText(), utilizadorAtual, comboGenero, Double.valueOf(txtPreco.getText()), utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex() - 1), checkVisibilidade.isSelected()));
+                                tabelaArtista.printMusicas(utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex() - 1).getMusicas());
+                                estatisticasArtista.updateEstatisticas();
+                                interfaceArtista.setLblTabela("Album: " + utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex() - 1).getNome());
+                                txtNomeMusica.setText("");
+                                txtPreco.setText("");
+                                checkVisibilidade.setSelected(true);
+                                frmCriarMusica.dispatchEvent(new WindowEvent(frmCriarMusica, WindowEvent.WINDOW_CLOSING));
+                                JOptionPane.showMessageDialog(frmCriarMusica, "Música adicionada com sucesso 😀");
+                            }
                         } else {
-                            rockstar.addMusica(new Musica(txtNomeMusica.getText(), utilizadorAtual, comboGenero, Double.valueOf(txtPreco.getText()), utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex()-1),checkVisibilidade.isSelected()));
-                            tabelaArtista.printMusicas(utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex()-1).getMusicas());
-                            estatisticasArtista.updateEstatisticas();
-                            interfaceArtista.setLblTabela("Album: "+utilizadorAtual.getAlbuns().get(cmbAlbum.getSelectedIndex()-1).getNome());
                             txtNomeMusica.setText("");
-                            txtPreco.setText("");
-                            checkVisibilidade.setSelected(true);
-                            frmCriarMusica.dispatchEvent(new WindowEvent(frmCriarMusica,WindowEvent.WINDOW_CLOSING));
-                            JOptionPane.showMessageDialog(frmCriarMusica, "Música adicionada com sucesso 😀");
+                            JOptionPane.showMessageDialog(frmCriarMusica, "Já tem uma música com este nome 😔");
                         }
-                    } else {
-                        txtNomeMusica.setText("");
-                        JOptionPane.showMessageDialog(frmCriarMusica, "Já tem uma música com este nome 😔");
                     }
                 } else {
                     txtNomeMusica.setText("");

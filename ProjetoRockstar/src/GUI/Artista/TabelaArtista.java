@@ -291,7 +291,7 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
         }
         else if(clicked==btnPreco){
             try {
-                if (txtPreco.getText().matches("\\d+(\\.\\d+)*")) {
+                if (txtPreco.getText().matches("\\d+(\\.\\d+)*") && (Double.valueOf(limitarCasasDecimais(Double.valueOf(txtPreco.getText())*100.0))%1==0)) {
                     if (Double.valueOf(txtPreco.getText()) >= 0) {
                         musicaSelecionada.novoPreco(Double.valueOf(txtPreco.getText()));
                         printMusicas(listaMusicasAtual);
