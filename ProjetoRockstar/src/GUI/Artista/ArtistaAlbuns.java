@@ -258,10 +258,12 @@ public class ArtistaAlbuns extends JPanel implements ActionListener {
             try {
                 if (!txtNomeMusica.getText().equals("") && txtPreco.getText().matches("\\d+(\\.\\d+)*") && !txtNomeMusica.getText().replace(" ","").equals("")) {
                     if (Double.valueOf(tabelaArtista.limitarCasasDecimais(Double.valueOf(txtPreco.getText())*100.0))%1==0) {
+                        double valor=Double.parseDouble(txtPreco.getText())*100.0;
+                        valor=(valor-valor%1)/100.0;
                         if (!utilizadorAtual.verificarMusica(txtNomeMusica.getText())) {
                             String comboGenero = (String) cmbGeneroMusica.getSelectedItem();
                             if (cmbAlbum.getSelectedIndex() == 0) {
-                                rockstar.addMusica(new Musica(txtNomeMusica.getText(), utilizadorAtual, comboGenero, Double.valueOf(txtPreco.getText()), checkVisibilidade.isSelected()));
+                                rockstar.addMusica(new Musica(txtNomeMusica.getText(), utilizadorAtual, comboGenero, valor, checkVisibilidade.isSelected()));
                                 tabelaArtista.printMusicas(utilizadorAtual.getTotalMusicas());
                                 estatisticasArtista.updateEstatisticas();
                                 interfaceArtista.setLblTabela("As minhas Músicas:");

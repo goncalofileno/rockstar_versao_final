@@ -293,7 +293,9 @@ public class TabelaArtista extends JPanel implements ActionListener, MouseListen
             try {
                 if (txtPreco.getText().matches("\\d+(\\.\\d+)*") && (Double.valueOf(limitarCasasDecimais(Double.valueOf(txtPreco.getText())*100.0))%1==0)) {
                     if (Double.valueOf(txtPreco.getText()) >= 0) {
-                        musicaSelecionada.novoPreco(Double.valueOf(txtPreco.getText()));
+                        double valor=Double.valueOf(txtPreco.getText())*100.0;
+                        valor=(valor-valor%1)/100.0;
+                        musicaSelecionada.novoPreco(valor);
                         printMusicas(listaMusicasAtual);
                         frmPreco.dispatchEvent(new WindowEvent(frmPreco, WindowEvent.WINDOW_CLOSING));
                     } else JOptionPane.showMessageDialog(interfaceArtista, "Dados inseridos inválidos 😔");
