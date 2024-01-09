@@ -105,13 +105,16 @@ public class PesquisaPanel extends JPanel {
                 if (interfaceCliente.getLblTabela().getText().equals("Biblioteca de músicas:")){
                     tabelaCliente.setPlaylist(null);
                     tabelaCliente.printMusicas(utilizadorAtual.getBiblioteca());
+                    txtPesquisa.setText("");
                 }
                 else if (interfaceCliente.getLblTabela().getText().equals("Loja:")){
                     tabelaCliente.setPlaylist(null);
                     tabelaCliente.printMusicasLoja(rockstar.musicasVisiveis());
+                    txtPesquisa.setText("");
                 }
                 else {
                     tabelaCliente.printMusicas(tabelaCliente.getPlaylist().getMusicas());
+                    txtPesquisa.setText("");
                 }
             }
         });

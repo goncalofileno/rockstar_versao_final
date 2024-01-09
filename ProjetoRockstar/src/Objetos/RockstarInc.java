@@ -59,7 +59,6 @@ public class RockstarInc implements Serializable {
      */
     public Utilizador verificarUtilizador(String username) {
         for (int i = 0; i < artistasList.size(); i++) {
-            System.out.println(artistasList.get(i).getUsername());
             if (artistasList.get(i).getUsername().equals(username)) {
                 return artistasList.get(i);
             }

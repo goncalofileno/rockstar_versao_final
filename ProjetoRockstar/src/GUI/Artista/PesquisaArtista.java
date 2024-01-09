@@ -92,9 +92,11 @@ public class PesquisaArtista extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (interfaceArtista.getLblTabela().getText().equals("As minhas Músicas:")){
                     tabelaArtista.printMusicas(utilizadorAtual.getTotalMusicas());
+                    txtPesquisa.setText("");
                 }
                 else {
                     tabelaArtista.printMusicas(tabelaArtista.getAlbum().getMusicas());
+                    txtPesquisa.setText("");
                 }
             }
         });

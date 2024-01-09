@@ -46,7 +46,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
         Font font1 = new Font("SansSerif", Font.BOLD, 11);
         btnCriarPlaylist = new JButton("Criar Playlist 🎶");
         btnCriarPlaylist.setFont(font1);
-        btnCriarPlaylist.setBounds(lblPlaylists.getX(), resizeHeight(250), resizeWidth(145), resizeHeight(25));
+        btnCriarPlaylist.setBounds(lblPlaylists.getX(), resizeHeight(200), resizeWidth(145), resizeHeight(25));
         btnCriarPlaylist.addActionListener(this);
         add(btnCriarPlaylist);
 
@@ -59,7 +59,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
         Font font2 = new Font("SansSerif", Font.BOLD, 12);
         btnBiblioteca = new JButton("Biblioteca 📂");
         btnBiblioteca.setFont(font2);
-        btnBiblioteca.setBounds(btnCriadorAI.getX(), btnCriadorAI.getY() + resizeHeight(165), resizeWidth(110), resizeHeight(25));
+        btnBiblioteca.setBounds(btnCriadorAI.getX(), btnCriadorAI.getY() + resizeHeight(215), resizeWidth(110), resizeHeight(25));
         add(btnBiblioteca);
 
         ////////////////////// Playlists Ficticias///////////////////////////////////
@@ -99,7 +99,7 @@ public class ClientePlaylists extends JPanel implements ActionListener {
         framePlaylistAI.setModal(true);
         framePlaylistAI.setLayout(null);
         framePlaylistAI.setLocationRelativeTo(null);
-        framePlaylistAI.setSize(resizeWidth(320),resizeHeight(220));
+        framePlaylistAI.setSize(resizeWidth(370),resizeHeight(220));
         framePlaylistAI.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         framePlaylistAI.setResizable(false);
         panelPlaylistAI=new panelPlaylistAI(utilizadorAtual,this, framePlaylistAI,rockstar);
@@ -262,7 +262,6 @@ public class ClientePlaylists extends JPanel implements ActionListener {
             btnListaPlaylists.get(i).setBorderPainted(false);
             mudarCorRGB(btnListaPlaylists.get(i),238,238,238);
 
-            System.out.println(playlists.get(i).getNome());
             panelPlaylists.add(btnListaPlaylists.get(i));
         }
     }

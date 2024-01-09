@@ -24,7 +24,7 @@ public class TabelaCliente extends JPanel implements ActionListener {
     private JScrollPane scrollPane;
     private JPopupMenu popupMenuLoja, popupMenuBiblioteca;
     private PanelCarrinho panelCarrinho;
-    private JFrame frmPrecos;
+    private JDialog frmPrecos;
     private JPanel panelPrecos,panelRating;
     private JMenuItem menuBiblioteca1;
     private ArrayList<JMenuItem> menuBiblioteca11;
@@ -78,7 +78,9 @@ public class TabelaCliente extends JPanel implements ActionListener {
         mudarCorRGB(table, 0, 70, 112);
 
         Font font = new Font("SansSerif", Font.BOLD, 11);
-        table.setFont(font);
+        Font font1 = new Font("SansSerif", Font.BOLD, 10);
+
+        table.setFont(font1);
         table.setForeground(new Color(255, 214, 10));
 
         scrollPane = new JScrollPane(table);
@@ -86,13 +88,13 @@ public class TabelaCliente extends JPanel implements ActionListener {
 
         // Adicionar a tabela à janela
 
-        int scrollPaneHeight;
+        /*int scrollPaneHeight;
         if ((listaMusicasAtual.size() + 1) * resizeHeight(23)<=500){
             scrollPaneHeight=(listaMusicasAtual.size() + 1) * resizeHeight(23);
         }
         else scrollPaneHeight=resizeHeight(500);
 
-        scrollPane.setSize(resizeWidth(465), scrollPaneHeight);
+        scrollPane.setSize(resizeWidth(465), scrollPaneHeight);*/
         add(scrollPane);
         table.setRowHeight(23);
 
@@ -147,8 +149,11 @@ public class TabelaCliente extends JPanel implements ActionListener {
             }
         });
 
-        frmPrecos = new JFrame("Histórico de preços");
+        frmPrecos = new JDialog();
+        frmPrecos.setTitle("Histórico de preços");
         frmPrecos.setLayout(null);
+        frmPrecos.setResizable(false);
+        frmPrecos.setModal(true);
         frmPrecos.setSize(resizeWidth(200), resizeHeight(300));
         frmPrecos.setLocationRelativeTo(null);
 
@@ -164,6 +169,7 @@ public class TabelaCliente extends JPanel implements ActionListener {
 
         frmRating =new JDialog();
         frmRating.setTitle("Dar Rating");
+        frmRating.setModal(true);
         frmRating.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frmRating.setLayout(null);
         frmRating.setBounds(resizeWidth(1000),resizeHeight(150),resizeWidth(280),resizeHeight(150));
@@ -196,7 +202,7 @@ public class TabelaCliente extends JPanel implements ActionListener {
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setEnabled(true);
+                //frame.setEnabled(true);
                 frmRating.dispatchEvent(new WindowEvent(frmRating,WindowEvent.WINDOW_CLOSING));
             }
         });
@@ -215,13 +221,13 @@ public class TabelaCliente extends JPanel implements ActionListener {
                             printMusicas(listaMusicasAtual);
                             JOptionPane.showMessageDialog(interfaceCliente, "Rating alterado com sucesso 😀");
                             txtRating.setText("");
-                            frame.setEnabled(true);
+                            //frame.setEnabled(true);
                         } else {
                             frmRating.dispatchEvent(new WindowEvent(frmRating, WindowEvent.WINDOW_CLOSING));
                             printMusicas(listaMusicasAtual);
                             JOptionPane.showMessageDialog(interfaceCliente, "Rating adicionado com sucesso 😀");
                             txtRating.setText("");
-                            frame.setEnabled(true);
+                            //frame.setEnabled(true);
                         }
                     }
                     else{
@@ -243,7 +249,7 @@ public class TabelaCliente extends JPanel implements ActionListener {
         menuLoja2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setEnabled(false);
+                //frame.setEnabled(false);
                 panelPrecos.removeAll();
                 panelPrecos.revalidate();
                 panelPrecos.repaint();
@@ -269,14 +275,14 @@ public class TabelaCliente extends JPanel implements ActionListener {
             }
         });
 
-        frmPrecos.addWindowListener(new WindowAdapter() {
+        /*frmPrecos.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                frame.setEnabled(true);
+                //frame.setEnabled(true);
             }
         });
-
+*/
         popupMenuLoja.add(menuLoja1);
         popupMenuLoja.add(menuLoja2);
 
@@ -302,18 +308,18 @@ public class TabelaCliente extends JPanel implements ActionListener {
         menuBiblioteca2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setEnabled(false);
+                //frame.setEnabled(false);
                 frmRating.setVisible(true);
             }
         });
 
-        frmRating.addWindowListener(new WindowAdapter() {
+       /* frmRating.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                frame.setEnabled(true);
+                //frame.setEnabled(true);
             }
-        });
+        });*/
 
         popupMenuBiblioteca.add(menuBiblioteca1);
         popupMenuBiblioteca.add(menuBiblioteca2);
@@ -405,14 +411,14 @@ public class TabelaCliente extends JPanel implements ActionListener {
      * @param musicas músicas que vão ser apresentadas na tabela central
      */
     public void printMusicas(ArrayList<Musica> musicas) {
-        String [] headers= {"Nome","Artista","Género","Rating",""};
+        String [] headers= {"Titulo","Artista","Género","Rating",""};
         setHeader(headers);
 
         listaMusicasAtual = musicas;
 
         int scrollPaneHeight;
         if ((listaMusicasAtual.size() + 1) * resizeHeight(23)<=500){
-            scrollPaneHeight=(listaMusicasAtual.size() + 1) * resizeHeight(23);
+            scrollPaneHeight=(listaMusicasAtual.size() + 1) * resizeHeight(21);
         }
         else scrollPaneHeight=resizeHeight(500);
 
@@ -446,14 +452,14 @@ public class TabelaCliente extends JPanel implements ActionListener {
      * @param musicas músicas que vão ser apresentadas na tabela central
      */
     public void printMusicasLoja(ArrayList<Musica> musicas) {
-        String [] headers ={"Nome","Artista","Género","Rating","Preço","Username"};
+        String [] headers ={"Titulo","Artista","Género","Rating","Preço","Username"};
         setHeader(headers);
 
         listaMusicasAtual=musicas;
 
         int scrollPaneHeight;
         if ((listaMusicasAtual.size() + 1) * resizeHeight(23)<=500){
-            scrollPaneHeight=(listaMusicasAtual.size() + 1) * resizeHeight(23);
+            scrollPaneHeight=(listaMusicasAtual.size() + 1) * resizeHeight(21);
         }
         else scrollPaneHeight=resizeHeight(500);
 
@@ -474,7 +480,12 @@ public class TabelaCliente extends JPanel implements ActionListener {
             } else {
                 model.setValueAt("Sem Rating", i, 3);
             }
-            model.setValueAt(musicas.get(i).getPrecoMusica()+" €", i, 4);
+            if (musicas.get(i).getPrecoMusica()==0) {
+                model.setValueAt("Grátis", i, 4);
+            }
+            else {
+                model.setValueAt(musicas.get(i).getPrecoMusica() + " €", i, 4);
+            }
             model.setValueAt(musicas.get(i).getCompositor().getUsername(), i, 5);
         }
 

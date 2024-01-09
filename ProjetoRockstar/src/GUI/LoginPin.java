@@ -34,9 +34,6 @@ public class LoginPin extends JPanel implements MouseListener, ActionListener {
         this.rockstar=rockstar;
 
         ArrayList< Album> albuns=utilizadorAtual.getAlbuns();
-        for(int i=0;i<albuns.size();i++){
-            System.out.println(albuns.get(i).getNome());
-        }
 
         mudarCorRGB(this,0, 70, 112);
         setLayout(null);

@@ -81,7 +81,7 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         Font font=new Font("SansSerif",Font.BOLD ,12);
         btnLoja=new JButton("Loja \uD83D\uDED2");
         btnLoja.setFont(font);
-        btnLoja.setBounds(panelPlaylists.getX()+panelPlaylists.getBtnBiblioteca().getX(),panelPlaylists.getY()+panelPlaylists.getHeight()+resizeHeight(15),resizeWidth(110),resizeHeight(30));
+        btnLoja.setBounds(panelPlaylists.getX()+panelPlaylists.getBtnBiblioteca().getX()-resizeWidth(10),panelPlaylists.getY()+panelPlaylists.getHeight()+resizeHeight(15),resizeWidth(110),resizeHeight(30));
         btnLoja.addActionListener(this);
         add(btnLoja);
 
@@ -109,11 +109,11 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         lblSaldo=new JLabel("Saldo: "+String.valueOf(tabelaCliente.limitarCasasDecimais(utilizadorAtual.getSaldo()))+"€");
         lblSaldo.setFont(font);
         lblSaldo.setForeground(new Color(255, 195, 0));
-        lblSaldo.setBounds(panelCarrinho.getX(),lblUser.getY(),resizeWidth(80),resizeHeight(20));
+        lblSaldo.setBounds(panelCarrinho.getX(),lblUser.getY(),resizeWidth(120),resizeHeight(20));
         add(lblSaldo);
 
         btnCarregar=new JButton("Carregar 💰");
-        btnCarregar.setBounds(lblSaldo.getX()+lblSaldo.getWidth()+resizeWidth(5),lblSaldo.getY()-resizeHeight(2),resizeWidth(100),resizeHeight(25));
+        btnCarregar.setBounds(lblSaldo.getX()+lblSaldo.getWidth()-resizeWidth(15),lblSaldo.getY()-resizeHeight(2),resizeWidth(100),resizeHeight(25));
         add(btnCarregar);
         btnCarregar.addActionListener(this);
 
@@ -229,7 +229,6 @@ public class InterfaceCliente extends JPanel implements ActionListener {
 
         }
         else if(clicked==btnRemoverPlaylist){
-            System.out.println("remover playlist");
             tabelaCliente.getModel().setRowCount(0);
             utilizadorAtual.getPlaylistsProprias().remove(tabelaCliente.getPlaylist());
             rockstar.removerPlaylist(tabelaCliente.getPlaylist());
@@ -242,7 +241,6 @@ public class InterfaceCliente extends JPanel implements ActionListener {
             btnAlterarVisibilidade.setVisible(false);
             lblAlterarVisibilidade.setVisible(false);
             int indice=tabelaCliente.getPlaylistsPopMenu().indexOf(tabelaCliente.getPlaylist());
-            System.out.println("remover"+tabelaCliente.getMenuBiblioteca11().get(indice).getText());
             tabelaCliente.getMenuBiblioteca1().remove(tabelaCliente.getMenuBiblioteca11().get(indice));
 
             tabelaCliente.getMenuBiblioteca11().remove(indice);
@@ -283,11 +281,15 @@ public class InterfaceCliente extends JPanel implements ActionListener {
         else if(clicked==btnCarregar2){
             try{
                 if((Double.valueOf(txtValor.getText())>0) && (Double.valueOf(tabelaCliente.limitarCasasDecimais(Double.valueOf(txtValor.getText())*100.0))%1==0) ){
-                        utilizadorAtual.carregarSaldo(Double.valueOf(txtValor.getText()));
-                        atualizarLblSaldo();
-                        txtValor.setText("");
-                        frmCarregamento.dispatchEvent(new WindowEvent(frmCarregamento, WindowEvent.WINDOW_CLOSING));
-                        JOptionPane.showMessageDialog(this, "Saldo adicionado com sucesso 😀");
+                        if(Double.valueOf(txtValor.getText())<=1000) {
+                            utilizadorAtual.carregarSaldo(Double.valueOf(txtValor.getText()));
+                            atualizarLblSaldo();
+                            txtValor.setText("");
+                            frmCarregamento.dispatchEvent(new WindowEvent(frmCarregamento, WindowEvent.WINDOW_CLOSING));
+                            JOptionPane.showMessageDialog(this, "Saldo adicionado com sucesso 😀");
+                        }else{
+                            JOptionPane.showMessageDialog(this, "O valor máximo de carregamento é de 1000€ 😔");
+                        }
                 }
                 else{
                     txtValor.setText("");

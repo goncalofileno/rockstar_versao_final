@@ -188,7 +188,6 @@ public class LoginPanel extends JPanel implements MouseListener, ActionListener 
                 }
                 else {
                     JOptionPane.showMessageDialog(this,"Os dados introduzidos não estão corretos 😔");
-                    System.out.println("2");
                 }
             }
         }
